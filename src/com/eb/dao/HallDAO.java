@@ -1,85 +1,177 @@
 package com.eb.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
-
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 
 import com.eb.model.Hall;
 
-
 public class HallDAO {
 
-	JdbcTemplate jdbcTemplate;
-	
-	public HallDAO() {}
-
-	public JdbcTemplate getJdbcTemplate() {
-		return jdbcTemplate;
-	}
-
-	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
-		this.jdbcTemplate = jdbcTemplate;
-	}
-	
-	public boolean createHall(Hall h) {
-		String query = "insert into halls values(?,?,?,?,?,?,?)";
-			int result = jdbcTemplate.update(query,h.getHallId(),h.getHallName(),h.getHallType(),h.getHallLocation(),h.getHallContact(),h.getNoOfSeats(),h.getOwner().getOwnerId());
-			return result>0?true:false;
-	}
-	
-	public boolean updateHall(Hall h) {
-		String query = "update halls set hall_name=?,hall_name=?,hall_type=?,hall_location=?,hall_contact=?,no_of_seats=? where hall_id=?";
-		int result = jdbcTemplate.update(query,h.getHallName(),h.getHallType(),h.getHallLocation(),h.getHallContact(),h.getNoOfSeats(),h.getHallId());
-			return result>0?true:false;
-	}
-	
-	public boolean deleteHall(int id) {
-		String query = "delete from halls where hall_id=?";
-			int result = jdbcTemplate.update(query,id);
-			return result>0?true:false;
-	}
-	
-	public List<Hall> getAllHalls(){
-		String query = "select * from halls";
-
+public Hall getHallByID(int id){
 		
-		return jdbcTemplate.query(query, new RowMapper<Hall>(){
-			public Hall mapRow(ResultSet rs, int rownum) throws SQLException {
-				Hall h = new Hall();
-				h.setHallId(rs.getInt(1));
-				h.setHallName(rs.getString(2));
-				h.setHallType(rs.getString(3));
-				h.setHallLocation(rs.getString(4));
-				h.setHallContact(rs.getString(5));
-				h.setNoOfSeats(rs.getInt(6));
-				return h;
-				
+		Connection con = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		Hall hall = null;
+		try
+		{
+			con = DBConnection.getConnection();
+			stmt = con.prepareStatement("select * from halls where hall_id=?");
+			stmt.setInt(1,id);
+			rs=stmt.executeQuery();
+			while(rs.next()) {
+				hall = new Hall(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6));	
 			}
-		});
-	}
+			return hall;
+		}
+		catch(SQLException se){se.printStackTrace();}
+		finally
+		{
+			try
+			{
+				if(stmt!=null)
+					stmt.close();
+				if(rs!=null)
+					rs.close();
+				if(con!=null)
+					con.close();
+			}
+			catch(SQLException se){se.printStackTrace();}
+		}
+		return hall;
 		
-		public List<Hall> getHallByOwner(int id){
-			String query = "select * from halls where owner_id=?";
-			return jdbcTemplate.query(query,new Object[]{id}, new RowMapper<Hall>(){
-				public Hall mapRow(ResultSet rs, int rownum) throws SQLException {
-					Hall h = new Hall();
-					h.setHallId(rs.getInt(1));
-					h.setHallName(rs.getString(2));
-					h.setHallType(rs.getString(3));
-					h.setHallLocation(rs.getString(4));
-					h.setHallContact(rs.getString(5));
-					h.setNoOfSeats(rs.getInt(6));
-					return h;
-					
-				}
-			});
+	}
+
+	public List<Hall> getHallListByOwner(int ownerID)
+    {
+        Connection con =null;
+        ResultSet rs = null;
+        PreparedStatement stmt = null;
+        List<Hall> list = new ArrayList<>();
+        try
+        {
+            con = DBConnection.getConnection();
+            stmt =con.prepareStatement("select * from halls where owner_id=?");
+            stmt.setInt(1,ownerID);
+            rs=stmt.executeQuery();
+            while(rs.next()) {
+            	Hall hall = new Hall(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6));	
+                list.add(hall);
+            }
+        }
+        catch(SQLException se) {se.printStackTrace();}
+        finally
+        {
+            try
+            {
+                if(stmt!=null)
+                    stmt.close();
+                if(rs!=null)
+                    rs.close();
+                if(con!=null)
+                    con.close();
+            }
+            catch(SQLException se) {se.printStackTrace();}
+        }
+        return list;
+    }
+	
+	public boolean deleteHall(int id){
+		
+		Connection con = null;
+		PreparedStatement stmt = null;
+		try
+		{
+			con = DBConnection.getConnection();
+			stmt = con.prepareStatement("delete from halls where hall_id=?");
+			stmt.setInt(1,id);
+			int n = stmt.executeUpdate();
+		    return n>0?true:false;
+		}
+		catch(SQLException se){se.printStackTrace();}
+		finally
+		{
+			try
+			{
+				if(stmt!=null)
+					stmt.close();
+				if(con!=null)
+					con.close();
+			}
+			catch(SQLException se){se.printStackTrace();}
+		}
+		return false;
 		
 	}
 	
 	
+	public boolean updateHall(Hall h){
+		
+		Connection con = null;
+		PreparedStatement stmt = null;
+		try
+		{
+			con = DBConnection.getConnection();
+			stmt = con.prepareStatement("update halls set hall_name=?,hall_type=?,hall_location=?,hall_contact=?,no_of_seats=? where hall_id=?");
+			stmt.setString(1,h.getHallName());
+			stmt.setString(2,h.getHallType());
+			stmt.setString(3,h.getHallLocation());
+			stmt.setString(4,h.getHallContact());
+			stmt.setInt(5,h.getNoOfSeats());
+			stmt.setInt(6,h.getHallId());
+			int n = stmt.executeUpdate();
+		    return n>0?true:false;
+		}
+		catch(SQLException se){se.printStackTrace();}
+		finally
+		{
+			try
+			{
+				if(stmt!=null)
+					stmt.close();
+				if(con!=null)
+					con.close();
+			}
+			catch(SQLException se){se.printStackTrace();}
+		}
+		return false;
+		
+	}
 	
-	
+	public boolean createHall(Hall h, int ownerID){
+		
+		Connection con = null;
+		PreparedStatement stmt = null;
+		try
+		{
+			con = DBConnection.getConnection();
+			stmt = con.prepareStatement("insert into halls values(halls_sequence.nextval,?,?,?,?,?,?)");
+			stmt.setString(1,h.getHallName());
+			stmt.setString(2,h.getHallType());
+			stmt.setString(3,h.getHallLocation());
+			stmt.setString(4,h.getHallContact());
+			stmt.setInt(5,h.getNoOfSeats());
+			stmt.setInt(6,ownerID);
+			int n = stmt.executeUpdate();
+		    return n>0?true:false;
+		}
+		catch(SQLException se){se.printStackTrace();}
+		finally
+		{
+			try
+			{
+				if(stmt!=null)
+					stmt.close();
+				if(con!=null)
+					con.close();
+			}
+			catch(SQLException se){se.printStackTrace();}
+		}
+		return false;
+		
+	}
 }

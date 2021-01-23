@@ -13,29 +13,5 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="C:/Users/paranthaman.pranavan/Downloads/External Libs/commons-logging-1.1.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/paranthaman.pranavan/Downloads/External Libs/commons-logging-adapters-1.1.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/paranthaman.pranavan/Downloads/External Libs/jstl-1.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/paranthaman.pranavan/Downloads/External Libs/ojdbc14.jar"/>
-	<classpathentry kind="lib" path="C:/Users/paranthaman.pranavan/Downloads/External Libs/spring-aop-4.1.6.RELEASE.jar"/>
-	<classpathentry kind="lib" path="C:/Users/paranthaman.pranavan/Downloads/External Libs/spring-aspects-4.1.6.RELEASE.jar"/>
-	<classpathentry kind="lib" path="C:/Users/paranthaman.pranavan/Downloads/External Libs/spring-beans-4.1.6.RELEASE.jar"/>
-	<classpathentry kind="lib" path="C:/Users/paranthaman.pranavan/Downloads/External Libs/spring-context-4.1.6.RELEASE.jar"/>
-	<classpathentry kind="lib" path="C:/Users/paranthaman.pranavan/Downloads/External Libs/spring-context-support-4.1.6.RELEASE.jar"/>
-	<classpathentry kind="lib" path="C:/Users/paranthaman.pranavan/Downloads/External Libs/spring-core-4.1.6.RELEASE.jar"/>
-	<classpathentry kind="lib" path="C:/Users/paranthaman.pranavan/Downloads/External Libs/spring-expression-4.1.6.RELEASE.jar"/>
-	<classpathentry kind="lib" path="C:/Users/paranthaman.pranavan/Downloads/External Libs/spring-instrument-4.1.6.RELEASE.jar"/>
-	<classpathentry kind="lib" path="C:/Users/paranthaman.pranavan/Downloads/External Libs/spring-instrument-tomcat-4.1.6.RELEASE.jar"/>
-	<classpathentry kind="lib" path="C:/Users/paranthaman.pranavan/Downloads/External Libs/spring-jdbc-4.1.6.RELEASE.jar"/>
-	<classpathentry kind="lib" path="C:/Users/paranthaman.pranavan/Downloads/External Libs/spring-jms-4.1.6.RELEASE.jar"/>
-	<classpathentry kind="lib" path="C:/Users/paranthaman.pranavan/Downloads/External Libs/spring-messaging-4.1.6.RELEASE.jar"/>
-	<classpathentry kind="lib" path="C:/Users/paranthaman.pranavan/Downloads/External Libs/spring-orm-4.1.6.RELEASE.jar"/>
-	<classpathentry kind="lib" path="C:/Users/paranthaman.pranavan/Downloads/External Libs/spring-oxm-4.1.6.RELEASE.jar"/>
-	<classpathentry kind="lib" path="C:/Users/paranthaman.pranavan/Downloads/External Libs/spring-test-4.1.6.RELEASE.jar"/>
-	<classpathentry kind="lib" path="C:/Users/paranthaman.pranavan/Downloads/External Libs/spring-tx-4.1.6.RELEASE.jar"/>
-	<classpathentry kind="lib" path="C:/Users/paranthaman.pranavan/Downloads/External Libs/spring-web-4.1.6.RELEASE.jar"/>
-	<classpathentry kind="lib" path="C:/Users/paranthaman.pranavan/Downloads/External Libs/spring-webmvc-4.1.6.RELEASE.jar"/>
-	<classpathentry kind="lib" path="C:/Users/paranthaman.pranavan/Downloads/External Libs/spring-webmvc-portlet-4.1.6.RELEASE.jar"/>
-	<classpathentry kind="lib" path="C:/Users/paranthaman.pranavan/Downloads/External Libs/spring-websocket-4.1.6.RELEASE.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

@@ -11,6 +11,16 @@ public class Hall {
 	private Owner owner;
 	
 	public Hall() {}
+	
+
+	public Hall(String hallName, String hallType, String hallLocation, String hallContact, int noOfSeats) {
+		super();
+		this.hallName = hallName;
+		this.hallType = hallType;
+		this.hallLocation = hallLocation;
+		this.hallContact = hallContact;
+		this.noOfSeats = noOfSeats;
+	}
 
 	public Hall(int hallId, String hallName, String hallType, String hallLocation, String hallContact, int noOfSeats) {
 		super();

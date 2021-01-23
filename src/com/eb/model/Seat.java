@@ -2,50 +2,50 @@ package com.eb.model;
 
 public class Seat {
 
-	private int seat_id;
-	private String seat_no;
-	private boolean seat_status;
+	private int seatId;
+	private String seatNo;
+	private boolean seatStatus;
 	private Event event;
 	
 	public Seat() {}
 
-	public Seat(int seat_id, String seat_no, boolean seat_status) {
+	public Seat(int seatId, String seatNo, boolean seatStatus) {
 		super();
-		this.seat_id = seat_id;
-		this.seat_no = seat_no;
-		this.seat_status = seat_status;
+		this.seatId = seatId;
+		this.seatNo = seatNo;
+		this.seatStatus = seatStatus;
 	}
 
-	public Seat(int seat_id, String seat_no, boolean seat_status, Event event) {
+	public Seat(int seatId, String seatNo, boolean seatStatus, Event event) {
 		super();
-		this.seat_id = seat_id;
-		this.seat_no = seat_no;
-		this.seat_status = seat_status;
+		this.seatId = seatId;
+		this.seatNo = seatNo;
+		this.seatStatus = seatStatus;
 		this.event = event;
 	}
 
-	public int getSeat_id() {
-		return seat_id;
+	public int getSeatId() {
+		return seatId;
 	}
 
-	public void setSeat_id(int seat_id) {
-		this.seat_id = seat_id;
+	public void setSeatId(int seatId) {
+		this.seatId = seatId;
 	}
 
-	public String getSeat_no() {
-		return seat_no;
+	public String getSeatNo() {
+		return seatNo;
 	}
 
-	public void setSeat_no(String seat_no) {
-		this.seat_no = seat_no;
+	public void setSeatNo(String seatNo) {
+		this.seatNo = seatNo;
 	}
 
-	public boolean isSeat_status() {
-		return seat_status;
+	public boolean isSeatStatus() {
+		return seatStatus;
 	}
 
-	public void setSeat_status(boolean seat_status) {
-		this.seat_status = seat_status;
+	public void setSeatStatus(boolean seatStatus) {
+		this.seatStatus = seatStatus;
 	}
 
 	public Event getEvent() {

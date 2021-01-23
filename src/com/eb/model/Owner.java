@@ -1,63 +1,59 @@
 package com.eb.model;
 
 public class Owner {
-	private int owner_id;
-	private String first_name;
-	private String last_name;
+	private int ownerId;
+	private String firstName;
+	private String lastName;
 	private String email;
 	private String mobile;
-	private String br_no;
+	private String brNo;
 	private User user;
 	
 	public Owner() {}
 	
-	
-
-	public Owner(int owner_id, String first_name, String last_name, String email, String mobile, String br_no) {
+	public Owner(int ownerId, String firstName, String lastName, String email, String mobile, String brNo) {
 		super();
-		this.owner_id = owner_id;
-		this.first_name = first_name;
-		this.last_name = last_name;
+		this.ownerId = ownerId;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.email = email;
 		this.mobile = mobile;
-		this.br_no = br_no;
+		this.brNo = brNo;
 	}
-
-
-	public Owner(int owner_id, String first_name, String last_name, String email, String mobile, String br_no,
-			User user) {
+	
+	public Owner(int ownerId, String firstName, String lastName, String email, String mobile, String brNo, User user) {
 		super();
-		this.owner_id = owner_id;
-		this.first_name = first_name;
-		this.last_name = last_name;
+		this.ownerId = ownerId;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.email = email;
 		this.mobile = mobile;
-		this.br_no = br_no;
+		this.brNo = brNo;
 		this.user = user;
 	}
 
-	public int getOwner_id() {
-		return owner_id;
+	public int getOwnerId() {
+		return ownerId;
 	}
 
-	public void setOwner_id(int owner_id) {
-		this.owner_id = owner_id;
+	public void setOwnerId(int ownerId) {
+		this.ownerId = ownerId;
 	}
 
-	public String getFirst_name() {
-		return first_name;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setFirst_name(String first_name) {
-		this.first_name = first_name;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public String getLast_name() {
-		return last_name;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setLast_name(String last_name) {
-		this.last_name = last_name;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	public String getEmail() {
@@ -76,12 +72,12 @@ public class Owner {
 		this.mobile = mobile;
 	}
 
-	public String getBr_no() {
-		return br_no;
+	public String getBrNo() {
+		return brNo;
 	}
 
-	public void setBr_no(String br_no) {
-		this.br_no = br_no;
+	public void setBrNo(String brNo) {
+		this.brNo = brNo;
 	}
 
 	public User getUser() {
@@ -91,5 +87,11 @@ public class Owner {
 	public void setUser(User user) {
 		this.user = user;
 	}
+	
+
+	
+
+	
+
 	
 }

@@ -2,35 +2,42 @@ package com.eb.model;
 
 public class User {
 
-	private int user_id;
-	private String user_name;
+	private int userId;
+	private String userName;
 	private String password;
-	private String user_type;
+	private String userType;
 	
 	public User() {}
 
-	public User(int user_id, String user_name, String password, String user_type) {
+	public User(int userId, String userName, String password) {
 		super();
-		this.user_id = user_id;
-		this.user_name = user_name;
+		this.userId = userId;
+		this.userName = userName;
 		this.password = password;
-		this.user_type = user_type;
 	}
 
-	public int getUser_id() {
-		return user_id;
+	public User(int userId, String userName, String password, String userType) {
+		super();
+		this.userId = userId;
+		this.userName = userName;
+		this.password = password;
+		this.userType = userType;
 	}
 
-	public void setUser_id(int user_id) {
-		this.user_id = user_id;
+	public int getUserId() {
+		return userId;
 	}
 
-	public String getUser_name() {
-		return user_name;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
-	public void setUser_name(String user_name) {
-		this.user_name = user_name;
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public String getPassword() {
@@ -41,12 +48,14 @@ public class User {
 		this.password = password;
 	}
 
-	public String getUser_type() {
-		return user_type;
+	public String getUserType() {
+		return userType;
 	}
 
-	public void setUser_type(String user_type) {
-		this.user_type = user_type;
+	public void setUserType(String userType) {
+		this.userType = userType;
 	}
+
+
 	
 }

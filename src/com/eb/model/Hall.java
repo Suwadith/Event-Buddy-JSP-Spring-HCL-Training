@@ -2,88 +2,84 @@ package com.eb.model;
 
 public class Hall {
 
-	private int hall_id;
-	private String hall_name;
-	private String hall_type;
-	private String hall_location;
-	private String hall_contact;
-	private int no_of_seats;
+	private int hallId;
+	private String hallName;
+	private String hallType;
+	private String hallLocation;
+	private String hallContact;
+	private int noOfSeats;
 	private Owner owner;
 	
 	public Hall() {}
-	
-	
 
-	public Hall(int hall_id, String hall_name, String hall_type, String hall_location, String hall_contact,
-			int no_of_seats) {
+	public Hall(int hallId, String hallName, String hallType, String hallLocation, String hallContact, int noOfSeats) {
 		super();
-		this.hall_id = hall_id;
-		this.hall_name = hall_name;
-		this.hall_type = hall_type;
-		this.hall_location = hall_location;
-		this.hall_contact = hall_contact;
-		this.no_of_seats = no_of_seats;
+		this.hallId = hallId;
+		this.hallName = hallName;
+		this.hallType = hallType;
+		this.hallLocation = hallLocation;
+		this.hallContact = hallContact;
+		this.noOfSeats = noOfSeats;
 	}
 
-
-	public Hall(int hall_id, String hall_name, String hall_type, String hall_location, String hall_contact,
-			int no_of_seats, Owner owner) {
+	public Hall(int hallId, String hallName, String hallType, String hallLocation, String hallContact, int noOfSeats,
+			Owner owner) {
 		super();
-		this.hall_id = hall_id;
-		this.hall_name = hall_name;
-		this.hall_type = hall_type;
-		this.hall_location = hall_location;
-		this.hall_contact = hall_contact;
-		this.no_of_seats = no_of_seats;
+		this.hallId = hallId;
+		this.hallName = hallName;
+		this.hallType = hallType;
+		this.hallLocation = hallLocation;
+		this.hallContact = hallContact;
+		this.noOfSeats = noOfSeats;
 		this.owner = owner;
 	}
 
-	public int getHall_id() {
-		return hall_id;
+	public int getHallId() {
+		return hallId;
 	}
 
-	public void setHall_id(int hall_id) {
-		this.hall_id = hall_id;
+	public void setHallId(int hallId) {
+		this.hallId = hallId;
 	}
 
-	public String getHall_name() {
-		return hall_name;
+	public String getHallName() {
+		return hallName;
 	}
 
-	public void setHall_name(String hall_name) {
-		this.hall_name = hall_name;
+	public void setHallName(String hallName) {
+		this.hallName = hallName;
 	}
 
-	public String getHall_type() {
-		return hall_type;
+	public String getHallType() {
+		return hallType;
 	}
 
-	public void setHall_type(String hall_type) {
-		this.hall_type = hall_type;
+	public void setHallType(String hallType) {
+		this.hallType = hallType;
 	}
 
-	public String getHall_location() {
-		return hall_location;
+	public String getHallLocation() {
+		return hallLocation;
 	}
 
-	public void setHall_location(String hall_location) {
-		this.hall_location = hall_location;
+	public void setHallLocation(String hallLocation) {
+		this.hallLocation = hallLocation;
 	}
 
-	public String getHall_contact() {
-		return hall_contact;
+	public String getHallContact() {
+		return hallContact;
 	}
 
-	public void setHall_contact(String hall_contact) {
-		this.hall_contact = hall_contact;
+	public void setHallContact(String hallContact) {
+		this.hallContact = hallContact;
 	}
 
-	public int getNo_of_seats() {
-		return no_of_seats;
+	public int getNoOfSeats() {
+		return noOfSeats;
 	}
 
-	public void setNo_of_seats(int no_of_seats) {
-		this.no_of_seats = no_of_seats;
+	public void setNoOfSeats(int noOfSeats) {
+		this.noOfSeats = noOfSeats;
 	}
 
 	public Owner getOwner() {
@@ -93,4 +89,7 @@ public class Hall {
 	public void setOwner(Owner owner) {
 		this.owner = owner;
 	}
+	
+	
+
 }

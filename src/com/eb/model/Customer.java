@@ -2,60 +2,60 @@ package com.eb.model;
 
 public class Customer {
 
-	private int customer_id;
-	private String first_name;
-	private String last_name;
+	private int customerId;
+	private String firstName;
+	private String lastName;
 	private String email;
 	private String mobile;
-	private String nic_no;
+	private String nicNo;
 	private User user;
 	
 	public Customer() {}
 
-	public Customer(int customer_id, String first_name, String last_name, String email, String mobile, String nic_no) {
+	public Customer(int customerId, String firstName, String lastName, String email, String mobile, String nicNo) {
 		super();
-		this.customer_id = customer_id;
-		this.first_name = first_name;
-		this.last_name = last_name;
+		this.customerId = customerId;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.email = email;
 		this.mobile = mobile;
-		this.nic_no = nic_no;
+		this.nicNo = nicNo;
 	}
 
-	public Customer(int customer_id, String first_name, String last_name, String email, String mobile, String nic_no,
+	public Customer(int customerId, String firstName, String lastName, String email, String mobile, String nicNo,
 			User user) {
 		super();
-		this.customer_id = customer_id;
-		this.first_name = first_name;
-		this.last_name = last_name;
+		this.customerId = customerId;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.email = email;
 		this.mobile = mobile;
-		this.nic_no = nic_no;
+		this.nicNo = nicNo;
 		this.user = user;
 	}
 
-	public int getCustomer_id() {
-		return customer_id;
+	public int getCustomerId() {
+		return customerId;
 	}
 
-	public void setCustomer_id(int customer_id) {
-		this.customer_id = customer_id;
+	public void setCustomerId(int customerId) {
+		this.customerId = customerId;
 	}
 
-	public String getFirst_name() {
-		return first_name;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setFirst_name(String first_name) {
-		this.first_name = first_name;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public String getLast_name() {
-		return last_name;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setLast_name(String last_name) {
-		this.last_name = last_name;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	public String getEmail() {
@@ -74,12 +74,12 @@ public class Customer {
 		this.mobile = mobile;
 	}
 
-	public String getNic_no() {
-		return nic_no;
+	public String getNicNo() {
+		return nicNo;
 	}
 
-	public void setNic_no(String nic_no) {
-		this.nic_no = nic_no;
+	public void setNicNo(String nicNo) {
+		this.nicNo = nicNo;
 	}
 
 	public User getUser() {
@@ -89,5 +89,9 @@ public class Customer {
 	public void setUser(User user) {
 		this.user = user;
 	}
+	
+	
+
+
 	
 }

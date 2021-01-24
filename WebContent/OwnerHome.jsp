@@ -10,10 +10,15 @@
 <% session.setAttribute("ownerID","301"); %>
 
 
-<h1>Owner Dashboard</h1>
+<h1>Owner Dash board</h1>
 <form action="ViewHallList" method="get">
-<input type="hidden" name="ownerID" value="<%= session.getAttribute("ownerID") %>"/>
+<input type="hidden" name="ownerID" value="<%=session.getAttribute("ownerID")%>"/>
 <input type="submit" value="Manage Hall">
+</form>
+<br><br>
+<form action="ViewEventList" method="get">
+<input type="hidden" name="ownerID" value="<%=session.getAttribute("ownerID")%>"/>
+<input type="submit" value="Manage Event">
 </form>
 </body>
 </html>

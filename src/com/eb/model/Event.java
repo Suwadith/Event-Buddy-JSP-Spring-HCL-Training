@@ -1,124 +1,139 @@
 package com.eb.model;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
+
+
 
 public class Event {
 
-	private int event_id;
-	private String event_name;
-	private String event_type;
-	private String event_description;
-	private Date event_date;
-	private Date start_time;
-	private Date end_time;
-	private double ticket_price;
-	private String event_image;
+	private int eventId;
+	private String eventName;
+	private String eventType;
+	private String eventDescription;
+	private LocalDate eventDate;
+	private LocalTime startTime;
+	private LocalTime endTime;
+	private double ticketPrice;
+	private String eventImage;
 	private Hall hall;
 	
 	public Event() {}
+
+	public Event(int eventId, String eventName, String eventType, String eventDescription, LocalDate eventDate,
+			LocalTime startTime, LocalTime endTime, double ticketPrice, String eventImage) {
+		super();
+		this.eventId = eventId;
+		this.eventName = eventName;
+		this.eventType = eventType;
+		this.eventDescription = eventDescription;
+		this.eventDate = eventDate;
+		this.startTime = startTime;
+		this.endTime = endTime;
+		this.ticketPrice = ticketPrice;
+		this.eventImage = eventImage;
+	}
 	
 	
 
-	public Event(int event_id, String event_name, String event_type, String event_description, Date event_date,
-			Date start_time, Date end_time, double ticket_price, String event_image) {
+	public Event(String eventName, String eventType, String eventDescription, LocalDate eventDate, LocalTime startTime,
+			LocalTime endTime, double ticketPrice, String eventImage) {
 		super();
-		this.event_id = event_id;
-		this.event_name = event_name;
-		this.event_type = event_type;
-		this.event_description = event_description;
-		this.event_date = event_date;
-		this.start_time = start_time;
-		this.end_time = end_time;
-		this.ticket_price = ticket_price;
-		this.event_image = event_image;
+		this.eventName = eventName;
+		this.eventType = eventType;
+		this.eventDescription = eventDescription;
+		this.eventDate = eventDate;
+		this.startTime = startTime;
+		this.endTime = endTime;
+		this.ticketPrice = ticketPrice;
+		this.eventImage = eventImage;
 	}
 
-
-	public Event(int event_id, String event_name, String event_type, String event_description, Date event_date,
-			Date start_time, Date end_time, double ticket_price, String event_image, Hall hall) {
+	public Event(int eventId, String eventName, String eventType, String eventDescription, LocalDate eventDate,
+			LocalTime startTime, LocalTime endTime, double ticketPrice, String eventImage, Hall hall) {
 		super();
-		this.event_id = event_id;
-		this.event_name = event_name;
-		this.event_type = event_type;
-		this.event_description = event_description;
-		this.event_date = event_date;
-		this.start_time = start_time;
-		this.end_time = end_time;
-		this.ticket_price = ticket_price;
-		this.event_image = event_image;
+		this.eventId = eventId;
+		this.eventName = eventName;
+		this.eventType = eventType;
+		this.eventDescription = eventDescription;
+		this.eventDate = eventDate;
+		this.startTime = startTime;
+		this.endTime = endTime;
+		this.ticketPrice = ticketPrice;
+		this.eventImage = eventImage;
 		this.hall = hall;
 	}
 
-	public int getEvent_id() {
-		return event_id;
+	public int getEventId() {
+		return eventId;
 	}
 
-	public void setEvent_id(int event_id) {
-		this.event_id = event_id;
+	public void setEventId(int eventId) {
+		this.eventId = eventId;
 	}
 
-	public String getEvent_name() {
-		return event_name;
+	public String getEventName() {
+		return eventName;
 	}
 
-	public void setEvent_name(String event_name) {
-		this.event_name = event_name;
+	public void setEventName(String eventName) {
+		this.eventName = eventName;
 	}
 
-	public String getEvent_type() {
-		return event_type;
+	public String getEventType() {
+		return eventType;
 	}
 
-	public void setEvent_type(String event_type) {
-		this.event_type = event_type;
+	public void setEventType(String eventType) {
+		this.eventType = eventType;
 	}
 
-	public String getEvent_description() {
-		return event_description;
+	public String getEventDescription() {
+		return eventDescription;
 	}
 
-	public void setEvent_description(String event_description) {
-		this.event_description = event_description;
+	public void setEventDescription(String eventDescription) {
+		this.eventDescription = eventDescription;
 	}
 
-	public Date getEvent_date() {
-		return event_date;
+	public LocalDate getEventDate() {
+		return eventDate;
 	}
 
-	public void setEvent_date(Date event_date) {
-		this.event_date = event_date;
+	public void setEventDate(LocalDate eventDate) {
+		this.eventDate = eventDate;
 	}
 
-	public Date getStart_time() {
-		return start_time;
+	public LocalTime getStartTime() {
+		return startTime;
 	}
 
-	public void setStart_time(Date start_time) {
-		this.start_time = start_time;
+	public void setStartTime(LocalTime startTime) {
+		this.startTime = startTime;
 	}
 
-	public Date getEnd_time() {
-		return end_time;
+	public LocalTime getEndTime() {
+		return endTime;
 	}
 
-	public void setEnd_time(Date end_time) {
-		this.end_time = end_time;
+	public void setEndTime(LocalTime endTime) {
+		this.endTime = endTime;
 	}
 
-	public double getTicket_price() {
-		return ticket_price;
+	public double getTicketPrice() {
+		return ticketPrice;
 	}
 
-	public void setTicket_price(double ticket_price) {
-		this.ticket_price = ticket_price;
+	public void setTicketPrice(double ticketPrice) {
+		this.ticketPrice = ticketPrice;
 	}
 
-	public String getEvent_image() {
-		return event_image;
+	public String getEventImage() {
+		return eventImage;
 	}
 
-	public void setEvent_image(String event_image) {
-		this.event_image = event_image;
+	public void setEventImage(String eventImage) {
+		this.eventImage = eventImage;
 	}
 
 	public Hall getHall() {
@@ -128,7 +143,13 @@ public class Event {
 	public void setHall(Hall hall) {
 		this.hall = hall;
 	}
+
+	@Override
+	public String toString() {
+		return "Event [eventId=" + eventId + ", eventName=" + eventName + ", eventType=" + eventType
+				+ ", eventDescription=" + eventDescription + ", eventDate=" + eventDate + ", startTime=" + startTime
+				+ ", endTime=" + endTime + ", ticketPrice=" + ticketPrice + ", eventImage=" + eventImage + "]";
+	}
 	
-	
-	
+
 }

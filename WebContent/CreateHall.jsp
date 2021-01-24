@@ -8,7 +8,6 @@
 </head>
 <body>
 <h2>Create Hall</h2>
-<h3>Please provide hall details</h3>
 <form action="CreateHall" method="post">
 <pre>
 Hall Name: 	<input type="text" name="hallName" required/> <br><br>
@@ -16,7 +15,7 @@ Hall Type: 	<input type="text" name="hallType" required/> <br><br>
 Hall Location: 	<input type="text" name="hallLocation" required/> <br><br>
 Hall Contact: 	<input type="text" name="hallContact" required/> <br><br>
 No of Seats: 	<input type="number" name="noOfSeats" required/> <br><br>
-				<input type="hidden" name="ownerID" value="301"/> 
+				<input type="hidden" name="ownerID" value="<%=session.getAttribute("ownerID")%>"/> 
 			<input type="submit" value="Create"/> &nbsp; <input type="reset" value="Clear"/>
 <br><br>
 

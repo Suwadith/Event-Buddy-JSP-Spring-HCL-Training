@@ -16,9 +16,5 @@
 <input type="submit" value="Manage Hall">
 </form>
 <br><br>
-<form action="ViewEventList" method="get">
-<input type="hidden" name="ownerID" value="<%=session.getAttribute("ownerID")%>"/>
-<input type="submit" value="Manage Event">
-</form>
 </body>
 </html>

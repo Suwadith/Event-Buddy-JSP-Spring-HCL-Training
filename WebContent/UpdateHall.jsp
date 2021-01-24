@@ -17,9 +17,11 @@ Hall Contact: 	<input type="text" name="hallContact" value="${hall.hallContact}"
 No of Seats: 	<input type="number" name="noOfSeats" value="${hall.noOfSeats}" required/> <br><br>
 				<input type="hidden" name="ownerID" value="<%=session.getAttribute("ownerID")%>"/>
 				<input type="hidden" name="hallID" value="${hall.hallId}"/> 
-			<input type="submit" value="Update"/> 
-<br><br>
+		<input type="submit" value="Update"/> 
+
 </pre>
 </form>
+
+<a href="javascript:history.back()">Go Back</a>
 </body>
 </html>

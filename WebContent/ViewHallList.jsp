@@ -38,6 +38,6 @@
 	<br><br>
 	<a href="CreateHall.jsp">Create Hall</a> 
 	<br><br>
-	<a href="OwnerHome.jsp">Back to Dashboard</a> 
+	<a href="javascript:history.back()">Go Back</a>
 </body>
 </html>

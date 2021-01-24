@@ -18,7 +18,7 @@ No of Seats: 	<input type="number" name="noOfSeats" required/> <br><br>
 				<input type="hidden" name="ownerID" value="<%=session.getAttribute("ownerID")%>"/> 
 			<input type="submit" value="Create"/> &nbsp; <input type="reset" value="Clear"/>
 <br><br>
-
+<a href="javascript:history.back()">Go Back</a> 
 </pre>
 </form>
 </body>

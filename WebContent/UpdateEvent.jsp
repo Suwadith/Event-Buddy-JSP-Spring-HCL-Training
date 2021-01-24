@@ -23,5 +23,6 @@ Ticket Price:	<input type="number" name="ticketPrice" value="${event.ticketPrice
 
 </pre>
 </form>
+<a href="javascript:history.back()">Go Back</a>
 </body>
 </html>

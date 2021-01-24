@@ -1,4 +1,4 @@
-package com.eb.servlet;
+package com.eb.servlet.event;
 
 import java.io.IOException;
 import java.util.List;
@@ -27,7 +27,7 @@ public class ViewEventList extends HttpServlet {
 		if (list!=null) {
 
 			request.setAttribute("eventList", list);
-			request.setAttribute("hallID", hallID);
+			request.setAttribute("hallId", hallID);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("ViewEventList.jsp");
 			dispatcher.forward(request, response);
 		}

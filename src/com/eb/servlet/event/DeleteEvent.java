@@ -1,4 +1,4 @@
-package com.eb.servlet;
+package com.eb.servlet.event;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

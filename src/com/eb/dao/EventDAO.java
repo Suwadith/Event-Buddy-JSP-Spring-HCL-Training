@@ -6,7 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -112,7 +111,6 @@ public Event getEventByID(int id){
 	}
 	
 	
-	@SuppressWarnings("deprecation")
 	public boolean updateEvent(Event e){
 		
 		Connection con = null;

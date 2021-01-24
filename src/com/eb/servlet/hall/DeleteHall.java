@@ -1,4 +1,4 @@
-package com.eb.servlet;
+package com.eb.servlet.hall;
 
 import java.io.IOException;
 

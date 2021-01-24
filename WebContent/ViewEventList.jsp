@@ -14,7 +14,7 @@
 	<h1>Event List</h1>
 	<table border="1">
 	<tr>
-	<th>Name</th><th>Type</th><th>Description</th><th>Date</th><th>Start Time</th><th>End Time</th><th>Ticket Price</th><th colspan=2>Options</th>
+	<th>Name</th><th>Type</th><th>Description</th><th>Date</th><th>Start Time</th><th>End Time</th><th>Ticket Price</th><th>Image</th><th colspan=2>Options</th>
 	</tr>
 	<c:forEach var="event" items="${eventList}">
 		<tr>
@@ -25,10 +25,12 @@
 		<td>${event.startTime}</td>
 		<td>${event.endTime}</td>
 		<td>${event.ticketPrice}</td>
-							
+		<td><img src="${event.eventImage}" alt="${event.eventName}" width="75" height="75"></td>				
 		<td>
-		<a href="<%=request.getContextPath()%>/SearchEvent?id=${event.eventId}&hid=<%=request.getAttribute("hallID")%>">Update</a>
-		<a href="<%=request.getContextPath()%>/DeleteEvent?id=${event.eventId}&hid=<%=request.getAttribute("hallID")%>" 
+		<a href="<%=request.getContextPath()%>/SearchEvent?id=${event.eventId}&hid=<%=request.getAttribute("hallId")%>">Update</a>
+		</td>
+		<td>
+		<a href="<%=request.getContextPath()%>/DeleteEvent?id=${event.eventId}&hid=<%=request.getAttribute("hallId")%>" 
 			onclick="if(!confirm('Are you sure to delete the event?')) return false"> Delete</a>
 		</td>
 		</tr>
@@ -36,6 +38,7 @@
 	</table>
 	<br><br>
 	<a href="CreateEvent.jsp?hid=<%=request.getAttribute("hallID")%>">Create Event</a> 
-
+	<br><br>
+	<a href="javascript:history.back()">Go Back</a>
 </body>
 </html>

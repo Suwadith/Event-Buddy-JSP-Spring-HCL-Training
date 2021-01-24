@@ -18,11 +18,10 @@ Start Time: 	<input type="time" name="startTime" required/> <br><br>
 End Time: 	<input type="time" name="endTime" required/> <br><br>
 Ticket Price:	<input type="number" name="ticketPrice" required/> <br><br>
 Event Image:	<input type="file" accept=".jpg" name="eventImage"/> <br><br>
-				<input type="hidden" name="hallID" value="<%=request.getParameter("hid")%>"/> 
+				<input type="hidden" name="hallId" value="<%=request.getParameter("hid")%>"/> 
 			<input type="submit" value="Create"/> &nbsp; <input type="reset" value="Clear"/>
-<br><br>
-
 </pre>
 </form>
+<a href="javascript:history.back()">Go Back</a>
 </body>
 </html>

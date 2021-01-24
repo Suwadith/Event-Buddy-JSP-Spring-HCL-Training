@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.eb.model.Hall;
 import com.eb.model.User;
 
 public class UserDAO {

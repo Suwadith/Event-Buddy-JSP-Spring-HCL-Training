@@ -1,7 +1,6 @@
-package com.eb.servlet;
+package com.eb.servlet.hall;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,28 +13,26 @@ import com.eb.dao.HallDAO;
 import com.eb.model.Hall;
 
 
-@WebServlet("/ViewHallList")
-public class ViewHallList extends HttpServlet {
+@WebServlet("/SearchHall")
+public class SearchHall extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		int ownerID = Integer.parseInt(request.getParameter("ownerID"));
+		int id = Integer.parseInt(request.getParameter("id"));
 		HallDAO dao = new HallDAO();
-		List<Hall> list = dao.getHallListByOwner(ownerID);
-		if (list != null) {
-			request.setAttribute("hallList", list);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("ViewHallList.jsp");
+		Hall hall = dao.getHallByID(id);
+		if (hall != null) {
+			request.setAttribute("hall", hall);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("UpdateHall.jsp");
 			dispatcher.forward(request, response);
-		}
+		} 
 		else 
 		{
 			response.sendRedirect(request.getContextPath() + "/ErrorPage.jsp");
-		}	
+		}
+		
+		
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
-	}
 
 }

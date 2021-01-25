@@ -1,4 +1,4 @@
-package com.eb.servlet;
+package com.eb.servlet.user;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -11,9 +11,7 @@ import com.eb.dao.UserDAO;
 import com.eb.model.Encryption;
 import com.eb.model.User;
 
-/**
- * Servlet implementation class RegisterUser
- */
+
 @WebServlet("/RegisterUser")
 public class RegisterUser extends HttpServlet {
 	private static final long serialVersionUID = 1L;

@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 import com.eb.dao.EventDAO;
+import com.eb.dao.HallDAO;
+import com.eb.dao.SeatDAO;
 import com.eb.model.Event;
 
 import java.time.LocalDate;
@@ -51,10 +53,27 @@ public class CreateEvent extends HttpServlet {
         EventDAO edao = new EventDAO();
         Event event = new Event(name,type,description,date,stime,etime,price,eventImagePath);
         boolean createEvent =edao.createEvent(event, hallID);
-        
+               
         if(createEvent)
 		{
-			response.sendRedirect(request.getContextPath() + "/ViewEventList?hid="+hallID);
+        	int createdEventID = edao.getEventByName(name).getEventId();
+        	
+        	HallDAO hdao = new HallDAO();
+        	int numSeats = hdao.getHallByID(hallID).getNoOfSeats();
+        	if(numSeats>0)
+        	{
+        		SeatDAO sdao = new SeatDAO();
+        		boolean createSeats = sdao.batchCreateSeats(numSeats, createdEventID);
+        		if(createSeats)
+        		{
+        			System.out.println("Seats created!!");
+        		}
+        		else 
+        		{
+        			System.out.println("Failed to create seats!!");
+        		}
+    			response.sendRedirect(request.getContextPath() + "/ViewEventList?hid="+hallID);	
+        	} 	
 		}
 		else 
 		{
@@ -62,6 +81,5 @@ public class CreateEvent extends HttpServlet {
 		}
 	}
 
-	
 
 }

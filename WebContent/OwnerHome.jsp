@@ -7,14 +7,23 @@
 <title>Owner Home Page</title>
 </head>
 <body>
-<% session.setAttribute("ownerID","301"); %>
-
-
-<h1>Owner Dash board</h1>
+<hr>
+<h1 align="center">Welcome <%=session.getAttribute("ownerName")%></h1>
+<hr>
+<br><br>
+<div align="center">
 <form action="ViewHallList" method="get">
 <input type="hidden" name="ownerID" value="<%=session.getAttribute("ownerID")%>"/>
 <input type="submit" value="Manage Hall">
 </form>
+<br>
+<form action="ViewHallList" method="get">
+<input type="hidden" name="ownerID" value="<%=session.getAttribute("ownerID")%>"/>
+<input type="submit" value="Sales Report">
+</form>
+
+</div>
+
 <br><br>
 </body>
 </html>

@@ -1,6 +1,8 @@
-package com.eb.servlet;
+package com.eb.servlet.user;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,14 +28,16 @@ public class LoginUser extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 
-		Encryption encryption = new Encryption();
+		//Encryption encryption = new Encryption();
 		UserDAO udao = new UserDAO();
 
 		User user = udao.getUser(username);
 
 		if (user != null) {
 
-			boolean isValid = encryption.checkPassword(password, user.getPassword());
+			//boolean isValid = encryption.checkPassword(password, user.getPassword());
+			
+			boolean isValid = user.getPassword().equals(password);
 
 			if (isValid) {
 				
@@ -44,7 +48,7 @@ public class LoginUser extends HttpServlet {
 
 					CustomerDAO cdao = new CustomerDAO();
 
-					Customer customer = cdao.getCustomerbById(user.getUserId());
+					Customer customer = cdao.getCustomerbByUserId(user.getUserId());
 
 					Customer cutsomerWithUserObj = new Customer(customer.getCustomerId(), customer.getFirstName(),
 							customer.getLastName(), customer.getEmail(), customer.getMobile(), customer.getNicNo(),
@@ -58,15 +62,14 @@ public class LoginUser extends HttpServlet {
 
 					OwnerDAO odao = new OwnerDAO();
 
-					Owner owner = odao.getOwnerbById(user.getUserId());
-
-					Customer ownerWithUserObj = new Customer(owner.getOwnerId(), owner.getFirstName(),
-							owner.getLastName(), owner.getEmail(), owner.getMobile(), owner.getBrNo(),
-							user);
-
-					session.setAttribute("ownerObj", ownerWithUserObj);
+					Owner owner = odao.getOwnerbByUserId(user.getUserId());
 					
-					//TODO Redirect to owner Dashboard and use this Obj
+					String fullname = owner.getFirstName() +" "+owner.getLastName();
+					session.setAttribute("ownerID", owner.getOwnerId());
+					session.setAttribute("ownerName", fullname);
+					
+					RequestDispatcher dispatcher = request.getRequestDispatcher("OwnerHome.jsp");
+					dispatcher.forward(request, response);
 
 				} else if (user.getUserType().equals("admin")) {
 					

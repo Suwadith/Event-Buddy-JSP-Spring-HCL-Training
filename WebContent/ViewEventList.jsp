@@ -37,7 +37,7 @@
 		</c:forEach>
 	</table>
 	<br><br>
-	<a href="CreateEvent.jsp?hid=<%=request.getAttribute("hallID")%>">Create Event</a> 
+	<a href="CreateEvent.jsp?hid=<%=request.getAttribute("hallId")%>">Create Event</a> 
 	<br><br>
 	<a href="javascript:history.back()">Go Back</a>
 </body>

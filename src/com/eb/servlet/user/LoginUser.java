@@ -50,13 +50,18 @@ public class LoginUser extends HttpServlet {
 
 					Customer customer = cdao.getCustomerbByUserId(user.getUserId());
 
-					Customer cutsomerWithUserObj = new Customer(customer.getCustomerId(), customer.getFirstName(),
+					/*Customer cutsomerWithUserObj = new Customer(customer.getCustomerId(), customer.getFirstName(),
 							customer.getLastName(), customer.getEmail(), customer.getMobile(), customer.getNicNo(),
-							user);
+							user);*/
 
-					session.setAttribute("customerObj", cutsomerWithUserObj);
+					//session.setAttribute("customerObj", cutsomerWithUserObj);
 					
-					//TODO Redirect to customer Dashboard and use this Obj
+					String fullname = customer.getFirstName() +" "+customer.getLastName();
+					session.setAttribute("customerID", customer.getCustomerId());
+					session.setAttribute("customerName", fullname);
+					
+					RequestDispatcher dispatcher = request.getRequestDispatcher("CustomerHome.jsp");
+					dispatcher.forward(request, response);
 
 				} else if (user.getUserType().equals("owner")) {
 
@@ -73,10 +78,10 @@ public class LoginUser extends HttpServlet {
 
 				} else if (user.getUserType().equals("admin")) {
 					
-					session.setAttribute("adminObj", user);
-					
-					//TODO Redirect to admin Dashboard and use this Obj
-					
+					//session.setAttribute("adminObj", user);
+					session.setAttribute("adminName", user.getUserName());
+					RequestDispatcher dispatcher = request.getRequestDispatcher("AdminHome.jsp");
+					dispatcher.forward(request, response);
 				}
 
 			} else {

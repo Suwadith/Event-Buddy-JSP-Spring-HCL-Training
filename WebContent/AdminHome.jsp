@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,5 +10,6 @@
 <body>
 <h1 align="center">Welcome <%=session.getAttribute("adminName")%></h1>
 <hr>
+
 </body>
 </html>

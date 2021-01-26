@@ -17,7 +17,11 @@
 Username : <input type="text" name="username"> <br><br>
 Password : <input type="password" name="password"> <br><br>
 <input type="submit" value="Login"/> &nbsp; <input type="reset" value="Clear"/> 
-<a href="RegisterCustomer.jsp"> Register </a>
+
+<br><br>
+<a href="RegisterCustomer.jsp"> Register Customer </a>
+<br><br>
+<font color="red">${message}</font>
 </pre>
 </form>
 </center>

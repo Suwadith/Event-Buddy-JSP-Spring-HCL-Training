@@ -29,16 +29,16 @@ public class LoginUser extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 
-		//Encryption encryption = new Encryption();
+		Encryption encryption = new Encryption();
 		UserDAO udao = new UserDAO();
 
 		User user = udao.getUser(username);
 
 		if (user != null) {
 
-			//boolean isValid = encryption.checkPassword(password, user.getPassword());
+			boolean isValid = encryption.checkPassword(password, user.getPassword());
 			
-			boolean isValid = user.getPassword().equals(password);
+			//boolean isValid = user.getPassword().equals(password);
 
 			if (isValid) {
 				
@@ -75,12 +75,15 @@ public class LoginUser extends HttpServlet {
 					
 					//session.setAttribute("adminObj", user);
 					session.setAttribute("adminName", user.getUserName());
-					RequestDispatcher dispatcher = request.getRequestDispatcher("AdminHome.jsp");
+					RequestDispatcher dispatcher = request.getRequestDispatcher("ViewOwnerList");
 					dispatcher.forward(request, response);
 				}
 
 			} else {
-				System.out.println("Invalid");
+				System.out.println("Invalid login");
+				request.setAttribute("message","Please input valid credentials");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("Login.jsp");
+				dispatcher.forward(request, response);
 			}
 		}
 	}

@@ -5,14 +5,36 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Owner Report</title>
+<script type="text/javascript">
+	
+function printDiv() 
+{
+
+  var divToPrint=document.getElementById('DivIdToPrint');
+
+  var newWin=window.open('','Print-Window');
+
+  newWin.document.open();
+
+  newWin.document.write('<html><body onload="window.print()">'+divToPrint.innerHTML+'</body></html>');
+
+  newWin.document.close();
+
+  setTimeout(function(){newWin.close();},10);
+
+}
+
+</script>
 </head>
 <body>
 
 <h1 align="center">Welcome <%=session.getAttribute("ownerName")%></h1>
 <hr>
+
+<div id="DivIdToPrint">
 <h2 align="center">Sales Report</h2>
-<center>
-<table border="1">
+
+<table align="center" border="1">
 	<tr>
 		<th>No of Hall (s) : </th>
 		<td><%=request.getAttribute("hallCount")%></td>
@@ -31,10 +53,13 @@
 	</tr>
 </table>
 <br>
-<button onclick="window.print()">Print Report</button>
+</div>
+<div align="center">
+<button onclick="printDiv()">Print Report</button>
 &nbsp;
 <button onclick="javascript:history.back()"> Go Back </button>
-</center>
+</div>
+
 </body>
 
 </html>

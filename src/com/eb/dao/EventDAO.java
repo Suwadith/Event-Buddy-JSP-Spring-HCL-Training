@@ -82,7 +82,42 @@ public Event getEventByID(int id){
 	}
 	return event;
 	
-}
+	}
+	
+	public int getEventCountByOwner(int id){
+		
+		Connection con = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		int count = 0;
+		try
+		{
+			con = DBConnection.getConnection();
+			stmt = con.prepareStatement("select count (*) as total from events inner join halls on events.hall_id = halls.hall_id where halls.owner_id=?");
+			stmt.setInt(1,id);
+			rs=stmt.executeQuery();
+			while(rs.next()) {
+				count = rs.getInt("total");
+			}
+			return count;
+		}
+		catch(SQLException se){se.printStackTrace();}
+		finally
+		{
+			try
+			{
+				if(stmt!=null)
+					stmt.close();
+				if(rs!=null)
+					rs.close();
+				if(con!=null)
+					con.close();
+			}
+			catch(SQLException se){se.printStackTrace();}
+		}
+		return count;
+		
+	}
 
 	public List<Event> getEventListByHall(int hallID)
     {

@@ -7,13 +7,20 @@
 <title>Login</title>
 </head>
 <body>
-<h2>Login</h2>
+<hr>
+<h1 align="center">Event Buddy</h1>
+<hr>
+<h2 align="center">Please login to continue</h2>
+<center>
 <form action="LoginUser" method="post">
 <pre>
 Username : <input type="text" name="username"> <br><br>
-Password :<input type="password" name="password"> <br><br>
-<input type="submit" value="Login"/> &nbsp; <input type="reset" value="Clear"/>
+Password : <input type="password" name="password"> <br><br>
+<input type="submit" value="Login"/> &nbsp; <input type="reset" value="Clear"/> 
+<a href="RegisterCustomer.jsp"> Register </a>
 </pre>
 </form>
+</center>
+
 </body>
 </html>

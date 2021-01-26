@@ -46,6 +46,41 @@ public Hall getHallByID(int id){
 		
 	}
 
+public int getHallCountByOwner(int id){
+	
+	Connection con = null;
+	PreparedStatement stmt = null;
+	ResultSet rs = null;
+	int count = 0;
+	try
+	{
+		con = DBConnection.getConnection();
+		stmt = con.prepareStatement("select count(*) as total from halls where owner_id=?");
+		stmt.setInt(1,id);
+		rs=stmt.executeQuery();
+		while(rs.next()) {
+			count = rs.getInt("total");
+		}
+		return count;
+	}
+	catch(SQLException se){se.printStackTrace();}
+	finally
+	{
+		try
+		{
+			if(stmt!=null)
+				stmt.close();
+			if(rs!=null)
+				rs.close();
+			if(con!=null)
+				con.close();
+		}
+		catch(SQLException se){se.printStackTrace();}
+	}
+	return count;
+	
+}
+
 	public List<Hall> getHallListByOwner(int ownerID)
     {
         Connection con =null;
@@ -174,4 +209,6 @@ public Hall getHallByID(int id){
 		return false;
 		
 	}
+	
+	
 }

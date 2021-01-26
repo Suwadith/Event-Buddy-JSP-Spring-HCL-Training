@@ -17,13 +17,14 @@
 <input type="submit" value="Manage Hall">
 </form>
 <br>
-<form action="ViewHallList" method="get">
+<form action="OwnerReport" method="get">
 <input type="hidden" name="ownerID" value="<%=session.getAttribute("ownerID")%>"/>
-<input type="submit" value="Sales Report">
+<input type="submit" value="View Report">
 </form>
-
+<br>
+<form action="LogoutUser" method="get">
+<input type="submit" value="Logout">
+</form>
 </div>
-
-<br><br>
 </body>
 </html>

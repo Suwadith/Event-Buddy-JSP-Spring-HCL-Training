@@ -19,6 +19,7 @@
 <hr>
 <h1 align="center">Hall List</h1>
 <hr>
+<center>
 	<table class="table table-bordered table-striped">
 	<tr>
 		<th>Name</th> <th>Type</th> <th>Location</th> <th>Contact</th> <th>Seats</th><th>Manage</th>
@@ -39,7 +40,7 @@
 	</tr>
 	</c:forEach>
 	</table>
-
+</center>
 <div align="center">
 <hr>
 	<a  href="CreateHall.jsp" class="btn btn-success"> Create Hall </a>  &nbsp;  &nbsp;  &nbsp;

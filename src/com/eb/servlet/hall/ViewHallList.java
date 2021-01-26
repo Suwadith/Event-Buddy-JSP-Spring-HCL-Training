@@ -25,6 +25,7 @@ public class ViewHallList extends HttpServlet {
 		List<Hall> list = dao.getHallListByOwner(ownerID);
 		if (list != null) {
 			request.setAttribute("hallList", list);
+			request.setAttribute("hallCount", list.size());
 			RequestDispatcher dispatcher = request.getRequestDispatcher("ViewHallList.jsp");
 			dispatcher.forward(request, response);
 		}

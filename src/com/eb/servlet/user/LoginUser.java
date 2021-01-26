@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.eb.dao.CustomerDAO;
+import com.eb.dao.HallDAO;
 import com.eb.dao.OwnerDAO;
 import com.eb.dao.UserDAO;
 import com.eb.model.Customer;
@@ -49,12 +50,6 @@ public class LoginUser extends HttpServlet {
 					CustomerDAO cdao = new CustomerDAO();
 
 					Customer customer = cdao.getCustomerbByUserId(user.getUserId());
-
-					/*Customer cutsomerWithUserObj = new Customer(customer.getCustomerId(), customer.getFirstName(),
-							customer.getLastName(), customer.getEmail(), customer.getMobile(), customer.getNicNo(),
-							user);*/
-
-					//session.setAttribute("customerObj", cutsomerWithUserObj);
 					
 					String fullname = customer.getFirstName() +" "+customer.getLastName();
 					session.setAttribute("customerID", customer.getCustomerId());
@@ -72,7 +67,7 @@ public class LoginUser extends HttpServlet {
 					String fullname = owner.getFirstName() +" "+owner.getLastName();
 					session.setAttribute("ownerID", owner.getOwnerId());
 					session.setAttribute("ownerName", fullname);
-					
+
 					RequestDispatcher dispatcher = request.getRequestDispatcher("OwnerHome.jsp");
 					dispatcher.forward(request, response);
 

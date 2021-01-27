@@ -40,10 +40,16 @@ public class RegisterCustomer extends HttpServlet {
 			CustomerDAO cdao = new CustomerDAO();
 			
 			boolean createCustomer = cdao.createCustomer(new Customer(firstName, lastName, email, mobile, nicNo, u));
-			
-//			response.sendRedirect(request.getContextPath() + "/ViewOwnerList");
-			System.out.println("Success");
-			
+			if(createCustomer)
+			{
+				response.sendRedirect(request.getContextPath() + "/Login.jsp");
+				System.out.println("Customer Creation Success");
+			}
+			else
+			{
+				System.out.println("Customer Creation Failed");
+			}
+				
 		} else {
 			response.sendRedirect(request.getContextPath() + "/ErrorPage.jsp");
 		}

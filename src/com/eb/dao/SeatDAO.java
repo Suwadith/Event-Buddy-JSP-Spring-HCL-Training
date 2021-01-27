@@ -191,6 +191,37 @@ public Seat getSeat(int id){
 		
 	}
 	
+	public boolean updateSeatStatus(int seatId){
+		
+		Connection con = null;
+		PreparedStatement stmt = null;
+		try
+		{
+			con = DBConnection.getConnection();
+			stmt = con.prepareStatement("update seats set status=? where seat_id=?");
+			
+			stmt.setString(1, "y");
+			stmt.setInt(2, seatId);
+		
+			int n = stmt.executeUpdate();
+		    return n>0?true:false;
+		}
+		catch(SQLException se){se.printStackTrace();}
+		finally
+		{
+			try
+			{
+				if(stmt!=null)
+					stmt.close();
+				if(con!=null)
+					con.close();
+			}
+			catch(SQLException se){se.printStackTrace();}
+		}
+		return false;
+		
+	}
+	
 	public boolean batchCreateSeats(int number,int eventID){
 		
 		Connection con = null;
@@ -225,5 +256,7 @@ public Seat getSeat(int id){
 		return false;
 		
 	}
+	
+	
 
 }

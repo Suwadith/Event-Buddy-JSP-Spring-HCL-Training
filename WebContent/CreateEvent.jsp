@@ -4,24 +4,32 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" >
 <title>Create Event</title>
 </head>
 <body>
-<h2>Create Event</h2>
+
+<hr>
+<h2 align="center">Create Event</h2>
+<hr>
+<br>
 <form action="CreateEvent" method="post" enctype="multipart/form-data" id="eventform">
 <pre>
-Event Name: 	<input type="text" name="eventName" required/> <br><br>
-Event Type: 	<input type="text" name="eventType" required/> <br><br>
-Description:    <textarea name="eventDescription" form="eventform" required></textarea> <br><br>
-Event Date: 	<input type="date" name="eventDate" required/> <br><br>
-Start Time: 	<input type="time" name="startTime" required/> <br><br>
-End Time: 	<input type="time" name="endTime" required/> <br><br>
-Ticket Price:	<input type="number" name="ticketPrice"  min="1" required/> <br><br>
-Event Image:	<input type="file" accept=".jpg" name="eventImage"/> <br><br>
-				<input type="hidden" name="hallId" value="<%=request.getParameter("hid")%>"/> 
-			<input type="submit" value="Create"/> &nbsp; <input type="reset" value="Clear"/>
+					Event Name:	<input type="text" name="eventName" required/> <br>
+					Event Type:	<input type="text" name="eventType" required/> <br>
+					Description:	<textarea name="eventDescription" form="eventform" required></textarea> <br>
+					Event Date:	<input type="date" name="eventDate" required/> <br>
+					Start Time:	<input type="time" name="startTime" required/> <br>
+					End Time:	<input type="time" name="endTime" required/> <br>
+					Ticket Price:	<input type="number" name="ticketPrice"  min="1" required/> <br>
+					Event Image:	<input type="file" accept=".jpg" name="eventImage"/> <br>
+					<input type="hidden" name="hallId" value="<%=request.getParameter("hid")%>"/> 
+					<input type="submit" value="Create" class="btn btn-success"/> &nbsp; <input type="reset" value="Clear" class="btn btn-warning"/><br>
+					<a href="javascript:history.back()" class="btn btn-secondary">Go Back</a>
 </pre>
 </form>
-<a href="javascript:history.back()">Go Back</a>
+
+
+
 </body>
 </html>

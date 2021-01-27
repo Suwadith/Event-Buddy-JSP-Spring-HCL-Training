@@ -187,7 +187,7 @@ public Customer getCustomerbByUserId(int id) {
 		try
 		{
 			con = DBConnection.getConnection();
-			stmt = con.prepareStatement("insert into customer values(customers_sequence.nextval,?,?,?,?,?,?)");
+			stmt = con.prepareStatement("insert into customers values(customers_sequence.nextval,?,?,?,?,?,?)");
 			stmt.setString(1, c.getFirstName());
 			stmt.setString(2,c.getLastName());
 			stmt.setString(3,c.getEmail());

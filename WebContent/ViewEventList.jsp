@@ -8,11 +8,19 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<style>.table{
+  width: auto !important;
+  text-align: center;
+}</style>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" >
 <title>Event List</title>
 </head>
 <body>
-	<h1>Event List</h1>
-	<table border="1">
+<hr>
+	<h1 align="center">Event List</h1>
+<hr>
+<center>
+	<table class="table table-bordered table-striped">
 	<tr>
 	<th>Name</th><th>Type</th><th>Description</th><th>Date</th><th>Start Time</th><th>End Time</th><th>Ticket Price</th><th>Image</th><th colspan=2>Options</th>
 	</tr>
@@ -27,18 +35,18 @@
 		<td>${event.ticketPrice}</td>
 		<td><img src="${event.eventImage}" alt="${event.eventName}" width="75" height="75"></td>				
 		<td>
-		<a href="<%=request.getContextPath()%>/SearchEvent?id=${event.eventId}&hid=<%=request.getAttribute("hallId")%>">Update</a>
+		<a href="<%=request.getContextPath()%>/SearchEvent?id=${event.eventId}&hid=<%=request.getAttribute("hallId")%>" class="btn btn-warning" >Update</a>
 		</td>
 		<td>
 		<a href="<%=request.getContextPath()%>/DeleteEvent?id=${event.eventId}&hid=<%=request.getAttribute("hallId")%>" 
-			onclick="if(!confirm('Are you sure to delete the event?')) return false"> Delete</a>
+			onclick="if(!confirm('Are you sure to delete the event?')) return false" class="btn btn-danger"> Delete</a>
 		</td>
 		</tr>
 		</c:forEach>
 	</table>
-	<br><br>
-	<a href="CreateEvent.jsp?hid=<%=request.getAttribute("hallId")%>">Create Event</a> 
-	<br><br>
-	<a href="javascript:history.back()">Go Back</a>
+<hr>	
+	<a href="CreateEvent.jsp?hid=<%=request.getAttribute("hallId")%>" class="btn btn-success">Create Event</a>  &nbsp;
+	<a href="javascript:history.back()" class="btn btn-secondary">Go Back</a>
+</center>
 </body>
 </html>

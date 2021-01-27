@@ -12,7 +12,7 @@ import com.eb.model.Ticket;
 
 public class TicketDAO {
 
-public Ticket getTicket(int id){
+/*public Ticket getTicket(int id){
 		
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -45,9 +45,9 @@ public Ticket getTicket(int id){
 		}
 		return ticket;
 		
-	}
+	}*/
 
-	public List<Ticket> getAllTicketsByEvent(int eventID)
+	/*public List<Ticket> getAllTicketsByEvent(int eventID)
     {
         Connection con =null;
         ResultSet rs = null;
@@ -80,7 +80,7 @@ public Ticket getTicket(int id){
             catch(SQLException se) {se.printStackTrace();}
         }
         return list;
-    }
+    }*/
 	
 	public int getTicketCountByOwner(int id){
 		
@@ -190,8 +190,8 @@ public Ticket getTicket(int id){
 		{
 			con = DBConnection.getConnection();
 			stmt = con.prepareStatement("update tickets set seat_no=? where ticket_id=?");
-			stmt.setString(1,t.getSeat_no());
-			stmt.setInt(2,t.getTicket_id());
+			stmt.setString(1,t.getSeatNno());
+			stmt.setInt(2,t.getTicketId());
 		
 			int n = stmt.executeUpdate();
 		    return n>0?true:false;
@@ -222,11 +222,11 @@ public Ticket getTicket(int id){
 			stmt = con.prepareStatement("insert into tickets values(tickets_sequence.nextval,?,?,?,?,?,?,?)");
 			stmt.setInt(1,t.getCustomer().getCustomerId());
 			stmt.setInt(2, t.getEvent().getEventId());
-			stmt.setString(3, t.getSeat_no());
+			stmt.setString(3, t.getSeatNno());
 			stmt.setDouble(4, t.getCommission());
-			stmt.setDate(5, (Date) t.getPayment_date());
-			stmt.setDouble(6,t.getPayment_amount());
-			stmt.setString(7, t.getPayment_status());
+			stmt.setDate(5, Date.valueOf(t.getPaymentDate()));
+			stmt.setDouble(6,t.getPaymentAmount());
+			stmt.setString(7, t.getPaymentStatus());
 			
 			int n = stmt.executeUpdate();
 		    return n>0?true:false;

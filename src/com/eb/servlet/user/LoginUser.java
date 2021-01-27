@@ -35,25 +35,20 @@ public class LoginUser extends HttpServlet {
 		User user = udao.getUser(username);
 
 		if (user != null) {
-
+		
 			boolean isValid = encryption.checkPassword(password, user.getPassword());
-			
-			//boolean isValid = user.getPassword().equals(password);
-
 			if (isValid) {
-				
-				 // Create a session object if it is already not  created.
-			      HttpSession session = request.getSession(true);
 
+			      HttpSession session = request.getSession(true);
+			      
 				if (user.getUserType().equals("customer")) {
 
 					CustomerDAO cdao = new CustomerDAO();
 
 					Customer customer = cdao.getCustomerbByUserId(user.getUserId());
-					
-					String fullname = customer.getFirstName() +" "+customer.getLastName();
+					System.out.println(customer.getFirstName());
 					session.setAttribute("customerID", customer.getCustomerId());
-					session.setAttribute("customerName", fullname);
+					session.setAttribute("customerName", customer.getFirstName());
 					
 					RequestDispatcher dispatcher = request.getRequestDispatcher("CustomerHome.jsp");
 					dispatcher.forward(request, response);
@@ -64,9 +59,8 @@ public class LoginUser extends HttpServlet {
 
 					Owner owner = odao.getOwnerbByUserId(user.getUserId());
 					
-					String fullname = owner.getFirstName() +" "+owner.getLastName();
 					session.setAttribute("ownerID", owner.getOwnerId());
-					session.setAttribute("ownerName", fullname);
+					session.setAttribute("ownerName", owner.getFirstName());
 
 					RequestDispatcher dispatcher = request.getRequestDispatcher("OwnerHome.jsp");
 					dispatcher.forward(request, response);
@@ -78,14 +72,28 @@ public class LoginUser extends HttpServlet {
 					RequestDispatcher dispatcher = request.getRequestDispatcher("ViewOwnerList");
 					dispatcher.forward(request, response);
 				}
-
-			} else {
-				System.out.println("Invalid login");
-				request.setAttribute("message","Please input valid credentials");
-				RequestDispatcher dispatcher = request.getRequestDispatcher("Login.jsp");
-				dispatcher.forward(request, response);
-			}
+				else 
+				{
+					System.out.println("Unknown login");
+					request.setAttribute("message","Login Error!!");
+					RequestDispatcher dispatcher = request.getRequestDispatcher("Login.jsp");
+					dispatcher.forward(request, response);
+				}
 		}
+		else 
+		{
+			System.out.println("Invalid Password");
+			request.setAttribute("message","Please input valid password!!");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("Login.jsp");
+			dispatcher.forward(request, response);
+		}
+		}
+		else 
+		{
+			System.out.println("Invalid Username");
+			request.setAttribute("message","Please input valid credentials!!");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("Login.jsp");
+			dispatcher.forward(request, response);
+		} 
 	}
-
 }

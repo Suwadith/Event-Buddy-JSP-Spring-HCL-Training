@@ -4,9 +4,13 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" >
 <title>Owner Report</title>
+<style>.table{
+  width: auto !important;
+  text-align: center;
+}</style>
 <script type="text/javascript">
-	
 function printDiv() 
 {
 
@@ -27,14 +31,15 @@ function printDiv()
 </script>
 </head>
 <body>
-
-<h1 align="center">Welcome <%=session.getAttribute("ownerName")%></h1>
 <hr>
-
+<h1 align="center">View Report</h1>
+<hr>
+<br>
 <div id="DivIdToPrint">
 <h2 align="center">Sales Report</h2>
-
-<table align="center" border="1">
+<br>
+<center>
+<table class="table">
 	<tr>
 		<th>No of Hall (s) : </th>
 		<td><%=request.getAttribute("hallCount")%></td>
@@ -49,15 +54,18 @@ function printDiv()
 	</tr>
 	<tr>
 		<th>Total Sales : </th>
-		<td>Rs.<%=request.getAttribute("salesAmount")%></td>
+		<td>Rs. <%=request.getAttribute("salesAmount")%></td>
 	</tr>
 </table>
+
+</center>
+
 <br>
 </div>
 <div align="center">
-<button onclick="printDiv()">Print Report</button>
+<button onclick="printDiv()" class="btn btn-primary" >Print Report</button>
 &nbsp;
-<button onclick="javascript:history.back()"> Go Back </button>
+<button onclick="javascript:history.back()" class="btn btn-secondary" > Go Back </button>
 </div>
 
 </body>

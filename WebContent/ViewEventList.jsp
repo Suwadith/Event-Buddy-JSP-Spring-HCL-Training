@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" errorPage="ErrorPage.jsp" %>
-
 <%@page import="java.util.List" %> 
 <%@page import="com.eb.model.Event"%> <%-- Import Java class for list --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
@@ -22,7 +21,7 @@
 <center>
 	<table class="table table-bordered table-striped">
 	<tr>
-	<th>Name</th><th>Type</th><th>Description</th><th>Date</th><th>Start Time</th><th>End Time</th><th>Ticket Price</th><th>Image</th><th colspan=2>Options</th>
+	<th>Name</th><th>Type</th><th>Description</th><th>Date</th><th>Start Time</th><th>End Time</th><th>Ticket Price</th><th colspan=2>Options</th>
 	</tr>
 	<c:forEach var="event" items="${eventList}">
 		<tr>
@@ -32,8 +31,7 @@
 		<td>${event.eventDate}</td>
 		<td>${event.startTime}</td>
 		<td>${event.endTime}</td>
-		<td>${event.ticketPrice}</td>
-		<td><img src="${event.eventImage}" alt="${event.eventName}" width="75" height="75"></td>				
+		<td>${event.ticketPrice}</td>				
 		<td>
 		<a href="<%=request.getContextPath()%>/SearchEvent?id=${event.eventId}&hid=<%=request.getAttribute("hallId")%>" class="btn btn-warning" >Update</a>
 		</td>

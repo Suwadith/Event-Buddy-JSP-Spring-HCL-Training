@@ -36,7 +36,7 @@ function printDiv()
 <hr>
 <br>
 <div id="DivIdToPrint">
-<h2 align="center">Sales Report</h2>
+<h2 align="center"> <u>Sales Report</u></h2>
 <br>
 <center>
 <table class="table">

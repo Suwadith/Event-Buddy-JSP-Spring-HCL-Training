@@ -7,12 +7,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" >
 <meta charset="ISO-8859-1">
 <style>.table{
   width: auto !important;
   text-align: center;
 }</style>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" >
 <title>Hall List</title>
 </head>
 <body>

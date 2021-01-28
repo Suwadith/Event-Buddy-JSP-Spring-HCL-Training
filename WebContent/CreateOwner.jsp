@@ -3,12 +3,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" >
 <meta charset="ISO-8859-1">
 <title>Create Hall</title>
 </head>
 <body>
 <h2>Register Owner</h2>
-<h3>Please provide below asked information</h3>
+<br>
 <form action="CreateOwner" method="post">
 <pre>
 User Name:			<input type="text" name="userName" required/> <br><br>

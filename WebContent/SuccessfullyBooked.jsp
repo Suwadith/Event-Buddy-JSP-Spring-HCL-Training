@@ -70,10 +70,10 @@ background: #1AA85C;
 
 </style>
 <body>
-
+<hr style="border: 10px solid green;border-radius: 5px;">
 <div class="container-fluid p-5">
-      <div class="row m-auto text-center w-75">
-        
+      <div class="row text-center w-75">
+        <div class="col-md-4 princing-item green"></div>
         <div class="col-md-4 princing-item green">
           <div class="pricing-divider ">
               <h3 class="text-light">${event.eventName}</h3>
@@ -87,7 +87,7 @@ background: #1AA85C;
               <li><b>Starts at:</b> ${event.startTime}</li>
               <li><b>Ends at:</b> ${event.endTime}</li>
               <li><b>No of Tickets:</b> ${noOfTickets}</li>
-             
+             	<li><b>Seat Numbers</b> ${seats}</li>
             </ul>
             <button type="button" class="btn btn-lg btn-block  btn-custom" onclick="window.print()">Print Ticket</button>
             <form action="LogoutUser" method="get"><button type="submit" class="btn btn-lg btn-block  btn-warning">Logout</button></form>
@@ -95,13 +95,8 @@ background: #1AA85C;
             
           </div>
         </div>
-               
-         
-        
-        
-        
-        
       </div>
     </div>
+ <hr style="border: 10px solid green;border-radius: 5px;">
 </body>
 </html>

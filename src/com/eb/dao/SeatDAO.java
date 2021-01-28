@@ -233,7 +233,7 @@ public Seat getSeat(int id){
 			for(int i=1;i<=number;i++)
 			{
 				stmt.setString(1,eventID+"-"+i);
-				stmt.setString(2,"Y");
+				stmt.setString(2,"N");
 				stmt.setInt(3,eventID);
 				stmt.addBatch();
 			}

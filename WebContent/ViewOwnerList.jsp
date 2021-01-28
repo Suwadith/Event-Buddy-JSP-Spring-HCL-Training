@@ -6,11 +6,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" >
 <meta charset="ISO-8859-1">
 <title>Owner List</title>
 </head>
 <body>
-	<h1>Hall List</h1>
+<hr>
+<h1>Welcome Admin!!</h1>
+<hr>
+	<h2>Manage Owners</h2>
 	<table border="1">
 	<tr>
 	<th>Owner ID</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Mobile</th><th>BR Number</th><th colspan=2>Options</th>

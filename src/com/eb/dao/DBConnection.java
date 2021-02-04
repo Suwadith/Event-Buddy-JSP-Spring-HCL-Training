@@ -12,7 +12,7 @@ public static Connection getConnection() {
 		
 		try 
 		{	Class.forName("oracle.jdbc.driver.OracleDriver");
-			con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","pranavan");
+			con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","root");
 		}
 		catch(SQLException e)
 		{

@@ -1,3 +1,24 @@
+drop table users cascade constraints;;
+drop sequence users_sequence;
+
+drop table customers cascade constraints;;
+drop sequence customers_sequence;
+
+drop table owners cascade constraints;;
+drop sequence owners_sequence;
+
+drop table halls cascade constraints;;
+drop sequence halls_sequence;
+
+drop table events cascade constraints;;
+drop sequence events_sequence;
+
+drop table tickets cascade constraints;;
+drop sequence tickets_sequence;
+
+drop table seats cascade constraints;;
+drop sequence seats_sequence;
+
 create table users(
 user_id number(10) primary key,
 user_name varchar2(25) not null,

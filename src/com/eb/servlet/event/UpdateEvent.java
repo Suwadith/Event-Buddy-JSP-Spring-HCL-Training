@@ -31,9 +31,13 @@ public class UpdateEvent extends HttpServlet {
 		LocalTime etime = LocalTime.parse(request.getParameter("endTime")); 
 		double price = Double.parseDouble(request.getParameter("ticketPrice"));
 		int hallId =Integer.parseInt(request.getParameter("hallId"));
-		
+		String imageURL= request.getParameter("eventImage");
+		if(imageURL==null || imageURL.isEmpty())
+		{
+			imageURL = "https://rangrezz.chitkara.edu.in/assets/images/stagetheater.jpg";
+		}
 		EventDAO edao = new EventDAO();
-        Event event = new Event(id,name,type,description,date,stime,etime,price,"Image File goes here");
+        Event event = new Event(id,name,type,description,date,stime,etime,price,imageURL);
         boolean updateEvent =edao.updateEvent(event);
         
         if(updateEvent)

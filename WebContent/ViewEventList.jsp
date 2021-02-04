@@ -21,7 +21,7 @@
 <center>
 	<table class="table table-bordered table-striped">
 	<tr>
-	<th>Name</th><th>Type</th><th>Description</th><th>Date</th><th>Start Time</th><th>End Time</th><th>Ticket Price</th><th colspan=2>Options</th>
+	<th>Name</th><th>Type</th><th>Description</th><th>Date</th><th>Start Time</th><th>End Time</th><th>Ticket Price</th><th>Image</th><th colspan=2> Options</th>
 	</tr>
 	<c:forEach var="event" items="${eventList}">
 		<tr>
@@ -31,9 +31,10 @@
 		<td>${event.eventDate}</td>
 		<td>${event.startTime}</td>
 		<td>${event.endTime}</td>
-		<td>${event.ticketPrice}</td>			
+		<td>${event.ticketPrice}</td>
+		<td><img src="${event.eventImage}" width="100" height="50"></td>			
 		<td>
-		<a href="<%=request.getContextPath()%>/SearchEvent?id=${event.eventId}&hid=<%=request.getAttribute("hallId")%>" class="btn btn-warning" >Update</a>
+		<a href="<%=request.getContextPath()%>/SearchEvent?id=${event.eventId}&hid=<%=request.getAttribute("hallId")%>" class="btn btn-warning" > Update</a>
 		</td>
 		<td>
 		<a href="<%=request.getContextPath()%>/DeleteEvent?id=${event.eventId}&hid=<%=request.getAttribute("hallId")%>" 

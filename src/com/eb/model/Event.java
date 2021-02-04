@@ -64,6 +64,19 @@ public class Event {
 		this.hall = hall;
 	}
 
+	public Event(int eventId, String eventName, String eventType, String eventDescription, LocalDate eventDate,
+			LocalTime startTime, LocalTime endTime, double ticketPrice) {
+		super();
+		this.eventId = eventId;
+		this.eventName = eventName;
+		this.eventType = eventType;
+		this.eventDescription = eventDescription;
+		this.eventDate = eventDate;
+		this.startTime = startTime;
+		this.endTime = endTime;
+		this.ticketPrice = ticketPrice;
+	}
+
 	public int getEventId() {
 		return eventId;
 	}

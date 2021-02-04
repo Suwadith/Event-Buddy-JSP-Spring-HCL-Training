@@ -59,7 +59,7 @@ event_date date not null,
 start_time timestamp not null,
 end_time timestamp not null,
 ticket_price binary_double not null,
-event_image varchar2(255),
+event_image varchar2(1000),
 hall_id number(10) not null,
 constraint fk_events foreign key(hall_id) references halls(hall_id) on delete cascade);
 

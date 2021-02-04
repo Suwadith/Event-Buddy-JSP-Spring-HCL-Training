@@ -43,7 +43,8 @@
 		   			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 deal deal-block">
 				<div class="item-slide">
 						<div class="box-img">
-						<img src="https://rangrezz.chitkara.edu.in/assets/images/stagetheater.jpg" alt="dasdas"/>
+						<!--<img src="https://rangrezz.chitkara.edu.in/assets/images/stagetheater.jpg" alt="dasdas"/> -->
+							<img src="${event.eventImage}" alt="Image" width="400" height="200"/>
 							<div class="text-wrap">
 							<h4>${event.eventName}&nbsp;<span class="deal-data"><span class="glyphicon glyphicon-calendar"></span>&nbsp;On &nbsp;${event.eventDate}&nbsp;<br>From ${event.startTime}&nbsp;To&nbsp;${event.endTime} </span></h4>
 								<div class="desc">									

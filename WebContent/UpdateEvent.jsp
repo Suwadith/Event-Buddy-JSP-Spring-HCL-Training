@@ -22,6 +22,7 @@
 	Start Time:	<input type="time" name="startTime" value="${event.startTime}" required/> <br>
 	End Time:	<input type="time" name="endTime" value="${event.endTime}" required/> <br>
 	Ticket Price:	<input type="number" name="ticketPrice" value="${event.ticketPrice}"required/> <br>
+	Event Image: <input type="url" name="eventImage" value="${event.eventImage}"/> <br>
 	<input type="hidden" name="eventId" value="${event.eventId}"/>
 	<input type="hidden" name="hallId" value="<%=request.getParameter("hid")%>"/> 
 	<input type="submit" value="Update" class="btn btn-success"/> &nbsp; <input type="reset" value="Clear" class="btn btn-warning"/> &nbsp; <a href="javascript:history.back()" class="btn btn-secondary">Go Back</a>

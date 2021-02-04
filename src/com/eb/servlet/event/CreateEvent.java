@@ -39,8 +39,11 @@ public class CreateEvent extends HttpServlet {
 		LocalTime etime = LocalTime.parse(request.getParameter("endTime")); 
 		double price = Double.parseDouble(request.getParameter("ticketPrice"));
 		int hallID = Integer.parseInt(request.getParameter("hallId"));
-		String imageURL = request.getParameter("eventImage");
-		
+		String imageURL= request.getParameter("eventImage");
+		if(imageURL==null || imageURL.isEmpty())
+		{
+			imageURL = "https://rangrezz.chitkara.edu.in/assets/images/stagetheater.jpg";
+		}
 		/*Part imagePartFile = request.getPart("eventImage");
 		String imageFileName = name + ".jpg";
 		InputStream imageFileContent = imagePartFile.getInputStream();

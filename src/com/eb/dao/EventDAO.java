@@ -128,7 +128,7 @@ public Event getEventByID(int id){
         try
         {
             con = DBConnection.getConnection();
-            stmt = con.prepareStatement("select * from events where hall_id=?");
+            stmt = con.prepareStatement("select * from events where hall_id=? order by event_date");
             stmt.setInt(1,hallID);
             rs=stmt.executeQuery();
             while(rs.next()) {
@@ -265,7 +265,7 @@ public Event getEventByID(int id){
         try
         {
             con = DBConnection.getConnection();
-            String query = "select * from events";
+            String query = "select * from events order by event_date";
             stmt = con.createStatement();
             rs=stmt.executeQuery(query);
            

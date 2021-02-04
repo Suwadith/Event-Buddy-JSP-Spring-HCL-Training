@@ -11,8 +11,8 @@
 <style>
 .jumbotron{
 	border-radius: 0px;
-	background-color: #673AB7;
-	color:white;
+	background-color: light-grey;
+	color:black;
 }
 
 </style>
@@ -22,8 +22,8 @@
  <div class="container-fluid" style="margin-top: 30px"  align="center">
        <div class="jumbotron">
            <div class="container">
-               <h1>Hello, <%=session.getAttribute("customerName")%></h1>
-       
+               <h1>Hello, <%=session.getAttribute("customerName")%> !!</h1>
+       			<br>
               	<p>
                	<form action="ViewAllEvents" method="get">
 				<input type="hidden" name="customerID" value="<%=session.getAttribute("customerID")%>"/>

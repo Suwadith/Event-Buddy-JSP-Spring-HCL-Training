@@ -24,7 +24,6 @@ import java.time.format.DateTimeFormatter;
 
 
 @WebServlet("/CreateEvent")
-@MultipartConfig()
 public class CreateEvent extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -33,25 +32,26 @@ public class CreateEvent extends HttpServlet {
 		String name = request.getParameter("eventName");
 		String type = request.getParameter("eventType");
 		String description = request.getParameter("eventDescription");
-		String edate =request.getParameter("eventDate").toString();
+		String edate = request.getParameter("eventDate").toString();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		LocalDate date = LocalDate.parse(edate, formatter);
 		LocalTime stime = LocalTime.parse(request.getParameter("startTime"));
 		LocalTime etime = LocalTime.parse(request.getParameter("endTime")); 
 		double price = Double.parseDouble(request.getParameter("ticketPrice"));
 		int hallID = Integer.parseInt(request.getParameter("hallId"));
+		String imageURL = request.getParameter("eventImage");
 		
-		Part imagePartFile = request.getPart("eventImage");
+		/*Part imagePartFile = request.getPart("eventImage");
 		String imageFileName = name + ".jpg";
 		InputStream imageFileContent = imagePartFile.getInputStream();
 		String imagePath = getServletContext().getInitParameter("image-upload");
 		String eventImagePath= imagePath+imageFileName;
 		File imageFile = new File(eventImagePath);
-		Files.copy(imageFileContent, imageFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+		Files.copy(imageFileContent, imageFile.toPath(), StandardCopyOption.REPLACE_EXISTING);*/
 		
 		
         EventDAO edao = new EventDAO();
-        Event event = new Event(name,type,description,date,stime,etime,price,eventImagePath);
+        Event event = new Event(name,type,description,date,stime,etime,price,imageURL);
         boolean createEvent =edao.createEvent(event, hallID);
                
         if(createEvent)

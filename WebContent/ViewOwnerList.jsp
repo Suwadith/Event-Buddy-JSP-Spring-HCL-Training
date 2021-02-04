@@ -8,37 +8,44 @@
 <head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" >
 <meta charset="ISO-8859-1">
+<style>.table{
+  width: auto !important;
+  text-align: center;
+}</style>
 <title>Owner List</title>
 </head>
 <body>
 <hr>
-<h1>Welcome Admin!!</h1>
+<h1 align="center"> Welcome Admin!!</h1>
 <hr>
-	<h2>Manage Owners</h2>
-	<table border="1">
+<h2 align="center"> Manage Owners </h2>
+<hr>
+<center>
+	<table class="table table-bordered table-striped">
 	<tr>
-	<th>Owner ID</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Mobile</th><th>BR Number</th><th colspan=2>Options</th>
+	<th>First Name</th><th>Last Name</th><th>Email</th><th>Mobile</th><th>BR Number</th><th colspan=2>Options</th>
 	</tr>
 	<c:forEach var="owner" items="${ownerList}">
 		<tr>
-		<td>${owner.ownerId}</td>
 		<td>${owner.firstName}</td>
 		<td>${owner.lastName}</td>
 		<td>${owner.email}</td>
 		<td>${owner.mobile}</td>
 		<td>${owner.brNo}</td>					
 		<td>
-		<a href="<%=request.getContextPath()%>/SearchOwner?id=${owner.ownerId}">Update</a>
+		<a href="<%=request.getContextPath()%>/SearchOwner?id=${owner.ownerId}" class="btn btn-warning"> Update </a>
 		</td>
 		<td><a href="<%=request.getContextPath()%>/DeleteOwner?id=${owner.userId}" 
-			onclick="if(!confirm('Are you sure to delete the owner?')) return false"> Delete </a>
+			onclick="if(!confirm('Are you sure to delete the owner?')) return false" class="btn btn-danger" > Delete </a>
 		</td>
 		</tr>
 	</c:forEach>
 	</table>
-	<br><br>
-	<a href="CreateOwner.jsp">Create Owner</a> 
-	<br><br>
-	<a href="javascript:history.back()">Go Back</a>
+<center>
+<div align="center">
+<hr>
+	<a href="CreateOwner.jsp" class="btn btn-success"> Create Account </a> &nbsp;
+	<a href="javascript:history.back()" class="btn btn-secondary"> Go Back </a>
+</div>
 </body>
 </html>

@@ -32,10 +32,10 @@
 		<td>${hall.hallContact}</td>
 		<td>${hall.noOfSeats}</td>					
 		<td>
-			<a href="<%=request.getContextPath()%>/SearchHall?id=${hall.hallId}" class="btn btn-warning">Update</a>
+			<a href="<%=request.getContextPath()%>/SearchHall?id=${hall.hallId}" class="btn btn-warning"> Update </a>
 			<a href="<%=request.getContextPath()%>/DeleteHall?id=${hall.hallId}&oid=<%=session.getAttribute("ownerID")%>"
 			onclick="if(!confirm('Are you sure to delete the hall?')) return false" class="btn btn-danger"> Delete </a>
-			<a href="<%=request.getContextPath()%>/ViewEventList?hid=${hall.hallId}" class="btn btn-primary">Events</a>
+			<a href="<%=request.getContextPath()%>/ViewEventList?hid=${hall.hallId}" class="btn btn-primary"> Events </a>
 		</td>
 	</tr>
 	</c:forEach>
@@ -43,7 +43,7 @@
 </center>
 <div align="center">
 <hr>
-	<a  href="CreateHall.jsp" class="btn btn-success"> Create Hall </a>  &nbsp;  &nbsp;  &nbsp;
+	<a href="CreateHall.jsp" class="btn btn-success"> Create Hall </a> &nbsp;
 	<a href="javascript:history.back()" class="btn btn-secondary"> Go Back </a>
 </div>
 	

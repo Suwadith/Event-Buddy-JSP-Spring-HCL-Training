@@ -63,7 +63,7 @@ function printDiv()
 <br>
 </div>
 <div align="center">
-<button onclick="printDiv()" class="btn btn-primary" >Print Report</button>
+<button onclick="printDiv()" class="btn btn-primary" > Print Report </button>
 &nbsp;
 <button onclick="javascript:history.back()" class="btn btn-secondary" > Go Back </button>
 </div>

@@ -15,15 +15,21 @@
 <br>
 <form action="CreateOwner" method="post">
 <pre>
-User Name:	<input type="text" name="userName" required/> <br>
-Password:	<input type="password" name="password" required/> <br>
-First Name:	<input type="text" name="firstName" required/> <br>
-Last Name:	<input type="text" name="lastName" required/> <br>
-E-mail Address:	<input type="text" name="email" required/> <br>
-Mobile Number:	<input type="text" name="mobile" required/> <br>
-Business Registration Number:	<input type="text" name="brNo" required/> <br>
-
-<input type="submit" value="Create Account"/> &nbsp; <input type="reset" value="Clear"/>
+User Name:	<input type="text" name="userName" required/> 
+<br>
+Password:	<input type="password" name="password" required/> 
+<br>
+First Name:	<input type="text" name="firstName" required/> 
+<br>
+Last Name:	<input type="text" name="lastName" required/> 
+<br>
+E-mail Address:	<input type="text" name="email" required/> 
+<br>
+Mobile Number:	<input type="text" name="mobile" required/>
+<br>
+BR Number:	<input type="text" name="brNo" required/> 
+<br>
+<input type="submit" value="Create Account" class="btn btn-success"/> &nbsp; <input type="reset" value="Clear" class="btn btn-warning"/> &nbsp; <a href="javascript:history.back()" class="btn btn-secondary">Go Back</a>
 </pre>
 </form>
 </center>

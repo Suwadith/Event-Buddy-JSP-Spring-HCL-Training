@@ -33,12 +33,9 @@
 <title>Events</title>
 </head>
 <body>
+<hr>
 <h1 style="text-align: center;">Events</h1>
-
-
-
-
-
+<hr>
 <section class="new-deal">
 		 <div class="container">
 		 

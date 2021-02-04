@@ -4,11 +4,4 @@
 <welcome-file-list>
     <welcome-file>Login.jsp</welcome-file>
 </welcome-file-list>
-  <context-param>
-    <description>Location to store uploaded images</description>
-    <param-name>image-upload</param-name>
-    <param-value>
-		C:\Users\paranthaman.pranavan\Downloads\apache-tomcat-9.0.41-windows-x64\apache-tomcat-9.0.41\webapps\data
-      </param-value>
-  </context-param>
 </web-app>

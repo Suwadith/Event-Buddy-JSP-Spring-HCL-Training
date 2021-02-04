@@ -31,7 +31,7 @@
 		<td>${event.eventDate}</td>
 		<td>${event.startTime}</td>
 		<td>${event.endTime}</td>
-		<td>${event.ticketPrice}</td>				
+		<td>${event.ticketPrice}</td>			
 		<td>
 		<a href="<%=request.getContextPath()%>/SearchEvent?id=${event.eventId}&hid=<%=request.getAttribute("hallId")%>" class="btn btn-warning" >Update</a>
 		</td>

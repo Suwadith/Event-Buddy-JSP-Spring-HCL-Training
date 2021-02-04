@@ -39,22 +39,22 @@ function printDiv()
 <h2 align="center"> <u>Sales Report</u></h2>
 <br>
 <center>
-<table class="table">
+<table class="table" style="text-align:left">
 	<tr>
-		<th>No of Hall (s) : </th>
+		<th>No. of Hall(s) Owned : </th>
 		<td><%=request.getAttribute("hallCount")%></td>
 	</tr>
 	<tr>
-		<th>No of Event (s) : </th>
+		<th>No. of Event(s) Hosted : </th>
 		<td><%=request.getAttribute("eventCount")%></td>
 	</tr>
 	<tr>
-		<th>Tickets sold : </th>
+		<th>No. of Ticket(s) sold : </th>
 		<td><%=request.getAttribute("ticketCount")%></td>
 	</tr>
 	<tr>
-		<th>Total Sales : </th>
-		<td>Rs. <%=request.getAttribute("salesAmount")%></td>
+		<th>Total Collection (Rs) : </th>
+		<td><%=request.getAttribute("salesAmount")%></td>
 	</tr>
 </table>
 

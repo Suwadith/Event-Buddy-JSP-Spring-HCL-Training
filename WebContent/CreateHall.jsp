@@ -21,9 +21,7 @@ Hall Location: 	<input type="text" name="hallLocation" required/> <br><br>
 Hall Contact: 	<input type="text" name="hallContact" required/> <br><br>
 No of Seats: 	<input type="number" name="noOfSeats" required/> <br><br>
 				<input type="hidden" name="ownerID" value="<%=session.getAttribute("ownerID")%>"/> 
-<input type="submit" value="Create" class="btn btn-success"/> &nbsp; <input type="reset" value="Clear" class="btn btn-warning" />
-<br>
-<a href="javascript:history.back()" class="btn btn-secondary">Go Back</a> 
+<input type="submit" value="Create" class="btn btn-success"/> &nbsp; <input type="reset" value="Clear" class="btn btn-warning" /> &nbsp;  <a href="javascript:history.back()" class="btn btn-secondary">Go Back</a>
 </pre>
 </form>
 </center>

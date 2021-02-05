@@ -12,7 +12,7 @@
 
         var username, password, firstName, lastName, email, mobile, brNo = "";
         var alertMessage = "";
-        var passwordRegex = /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[a-zA-Z!#$%&? "])[a-zA-Z0-9!#$%&?]{6,25}$/;
+        var passwordRegex = /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[a-zA-Z!#@$^%&? "])[a-zA-Z0-9!#@^$%&?]{6,25}$/;
         var emailRegex = /\S+@\S+\.\S+/;
         var mobileRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
 
@@ -70,7 +70,7 @@
         }else if(brNo.length>10) {
             alertMessage += "please provide a valid br number within 10 digits only\n";
         }
-        
+
         if(alertMessage.length>10) {
             alert(alertMessage);
             return false;

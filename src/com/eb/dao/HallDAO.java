@@ -90,7 +90,7 @@ public int getHallCountByOwner(int id){
         try
         {
             con = DBConnection.getConnection();
-            stmt =con.prepareStatement("select * from halls where owner_id=?");
+            stmt =con.prepareStatement("select * from halls where owner_id=? order by hall_id asc");
             stmt.setInt(1,ownerID);
             rs=stmt.executeQuery();
             while(rs.next()) {

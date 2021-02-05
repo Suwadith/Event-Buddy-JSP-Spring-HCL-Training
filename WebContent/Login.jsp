@@ -3,8 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" >
-<meta charset="ISO-8859-1">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <title>Login</title>
 </head>
 <body>
@@ -14,13 +15,13 @@
 <br>
 <h4 align="center">Please login to continue</h4>
 <center>
-<font color="red">${message}</font>
+<font color="red"> ${message} </font>
 <br>
 <form action="LoginUser" method="post" class="form-group">
 <pre>
-<b>Username :</b> <input type="text" name="username" class="form-text text-muted" required> 
+<b>Username :</b> <input type="text" name="username" class="form-text text-muted" maxlength="25" required> 
 <br>
-<b>Password :</b> <input type="password" name="password" class="form-text text-muted" required> 
+<b>Password :</b> <input type="password" name="password" class="form-text text-muted" maxlength="25" required> 
 <br> 
 <input type="submit" value="Login" class="btn btn-outline-primary"/> &nbsp; <input type="reset" value="Clear" class="btn btn-outline-secondary""/>
 <br>

@@ -29,7 +29,7 @@ public class BookTicket extends HttpServlet {
  
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		 HttpSession session = request.getSession(false);
+		HttpSession session = request.getSession(false);
 		 
 		String seats[] = request.getParameterValues("seats");
 		int eventId = Integer.parseInt(request.getParameter("eventId"));
@@ -41,7 +41,6 @@ public class BookTicket extends HttpServlet {
 		TicketDAO ticketDAO = new TicketDAO();
 		
 		CustomerDAO customerDAO = new CustomerDAO();
-		//Customer c = customerDAO.getCustomerbyId(201);
 		Customer c =  customerDAO.getCustomerbyId(customerId);
 		Event e = eventDAO.getEventByIDwithHall(eventId);
 		

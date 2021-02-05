@@ -49,6 +49,7 @@ public class LoginUser extends HttpServlet {
 					System.out.println(customer.getFirstName());
 					session.setAttribute("customerID", customer.getCustomerId());
 					session.setAttribute("customerName", customer.getFirstName());
+					session.setAttribute("userType","customer");
 					
 					RequestDispatcher dispatcher = request.getRequestDispatcher("CustomerHome.jsp");
 					dispatcher.forward(request, response);
@@ -61,6 +62,7 @@ public class LoginUser extends HttpServlet {
 					
 					session.setAttribute("ownerID", owner.getOwnerId());
 					session.setAttribute("ownerName", owner.getFirstName());
+					session.setAttribute("userType","owner");
 
 					RequestDispatcher dispatcher = request.getRequestDispatcher("OwnerHome.jsp");
 					dispatcher.forward(request, response);
@@ -69,6 +71,7 @@ public class LoginUser extends HttpServlet {
 					
 					//session.setAttribute("adminObj", user);
 					session.setAttribute("adminName", user.getUserName());
+					session.setAttribute("userType","admin");
 					RequestDispatcher dispatcher = request.getRequestDispatcher("ViewOwnerList");
 					dispatcher.forward(request, response);
 				}

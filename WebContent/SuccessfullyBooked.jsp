@@ -65,9 +65,6 @@ background: #1AA85C;
   transform: translate3d(-15px, 0, 0);
 }
 
-
-
-
 </style>
 <body>
 <hr style="border: 10px solid green;border-radius: 5px;">
@@ -78,18 +75,17 @@ background: #1AA85C;
           <div class="pricing-divider ">
               <h3 class="text-light">${event.eventName}</h3>
             <h4 class="my-0 display-2 text-light font-weight-normal mb-3"><span class="h3">Rs.&nbsp;</span> ${ticketPrice} </h4>
-             
           </div>
 
           <div class="card-body bg-white mt-0 shadow">
             <ul class="list-unstyled mb-5 position-relative">
-              <li><b>On</b> ${event.eventDate}</li>
-              <li><b>Starts at:</b> ${event.startTime}</li>
-              <li><b>Ends at:</b> ${event.endTime}</li>
-              <li><b>No of Tickets:</b> ${noOfTickets}</li>
-             	<li><b>Seat Numbers</b> ${seats}</li>
+              <li><b> On </b> ${event.eventDate} </li>
+              <li><b> Starts at: </b> ${event.startTime} </li>
+              <li><b> Ends at: </b> ${event.endTime} </li>
+              <li><b> No of Tickets: </b> ${noOfTickets} </li>
+             	<li><b> Seat Numbers </b> ${seats} </li>
             </ul>
-            <button type="button" class="btn btn-lg btn-block  btn-custom" onclick="window.print()">Print Ticket</button>
+            <button type="button" class="btn btn-lg btn-block  btn-custom" onclick="window.print()"> Print Ticket </button>
             <form action="LogoutUser" method="get"><button type="submit" class="btn btn-lg btn-block  btn-warning">Logout</button></form>
             <form action="ViewAllEvents" method="get"><button type="submit" class="btn btn-lg btn-block  btn-primary">Home</button></form>
             

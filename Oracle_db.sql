@@ -54,7 +54,7 @@ create table events(
 event_id number(10) primary key,
 event_name varchar2(25) not null,
 event_type varchar2(25) not null,
-event_description varchar2(100) not null,
+event_description varchar2(500) not null,
 event_date date not null,
 start_time timestamp not null,
 end_time timestamp not null,

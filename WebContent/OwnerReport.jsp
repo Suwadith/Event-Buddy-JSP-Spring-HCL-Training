@@ -27,7 +27,6 @@ function printDiv()
   setTimeout(function(){newWin.close();},10);
 
 }
-
 </script>
 </head>
 <body>
@@ -36,7 +35,7 @@ function printDiv()
 <hr>
 <br>
 <div id="DivIdToPrint">
-<h2 align="center"> <u>Sales Report</u></h2>
+<h3 align="center"> <u>Sales Report</u></h3>
 <br>
 <center>
 <table class="table" style="text-align:left">
@@ -57,9 +56,7 @@ function printDiv()
 		<td><%=request.getAttribute("salesAmount")%></td>
 	</tr>
 </table>
-
 </center>
-
 <br>
 </div>
 <div align="center">
@@ -67,7 +64,8 @@ function printDiv()
 &nbsp;
 <button onclick="javascript:history.back()" class="btn btn-secondary" > Go Back </button>
 </div>
-
+<br>
+<hr>
 </body>
 
 </html>

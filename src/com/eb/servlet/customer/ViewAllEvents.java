@@ -26,7 +26,7 @@ public class ViewAllEvents extends HttpServlet {
 		//int customerID = Integer.parseInt(request.getParameter("customerID"));
 		int customerID = (Integer)session.getAttribute("customerID");
 		EventDAO eventDAO = new EventDAO();
-		List<Event> list = eventDAO.getAllEvents();
+		List<Event> list = eventDAO.getEventListByToday();
 		if (list != null) {
 			request.setAttribute("eventList", list);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("ViewAllEvents.jsp");

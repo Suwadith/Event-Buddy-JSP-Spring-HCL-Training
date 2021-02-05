@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Time;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -153,6 +154,42 @@ public Event getEventByID(int id){
         return list;
     }
 	
+	
+	public List<Event> getEventListByToday()
+    {
+		LocalDate today = LocalDate.now();
+        Connection con =null;
+        ResultSet rs = null;
+        PreparedStatement stmt = null;
+        List<Event> list = new ArrayList<>();
+        try
+        {
+            con = DBConnection.getConnection();
+            stmt = con.prepareStatement("select * from events where event_date >= ? order by event_date");
+            stmt.setDate(1,Date.valueOf(today));
+            rs=stmt.executeQuery();
+            while(rs.next()) {
+            	Event event = new Event(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getDate(5).toLocalDate(),rs.getTime(6).toLocalTime(),rs.getTime(7).toLocalTime(),rs.getDouble(8),rs.getString(9));
+                list.add(event);
+            }
+        }
+        catch(SQLException se) {se.printStackTrace();}
+        finally
+        {
+            try
+            {
+                if(stmt!=null)
+                    stmt.close();
+                if(rs!=null)
+                    rs.close();
+                if(con!=null)
+                    con.close();
+            }
+            catch(SQLException se) {se.printStackTrace();}
+        }
+        return list;
+    }
+	
 	public boolean deleteEvent(int id){
 		
 		Connection con = null;
@@ -257,6 +294,7 @@ public Event getEventByID(int id){
 	
 	public List<Event> getAllEvents()
     {
+		
         Connection con =null;
         ResultSet rs = null;
         Statement stmt = null;

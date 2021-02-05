@@ -6,6 +6,75 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" >
 <meta charset="ISO-8859-1">
 <title>Register Owner</title>
+
+<script>
+    function validateForm() {
+        var username, password, firstName, lastName, email, mobile, brNo = "";
+        var alertMessage = "";
+        var passwordRegex = /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[a-zA-Z!#@$^%&? "])[a-zA-Z0-9!#@^$%&?]{6,25}$/;
+        var emailRegex = /\S+@\S+\.\S+/;
+        var mobileRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+        username = document.forms["ownerForm"]["userName"].value.trim();
+        password = document.forms["ownerForm"]["password"].value;
+        firstName = document.forms["ownerForm"]["firstName"].value.trim();
+        lastName = document.forms["ownerForm"]["lastName"].value.trim();
+        email = document.forms["ownerForm"]["email"].value.trim();
+        mobile = document.forms["ownerForm"]["mobile"].value.trim();
+        brNo = document.forms["ownerForm"]["brNo"].value.trim();
+        if(username.length==0) {
+            alertMessage += "Username must be filled out\n";
+        }
+        if(username.length<6) {
+            alertMessage += "Username must atleast contain 6 characters minimum\n";
+        }
+        if(username.length>25) {
+            alertMessage += "Username must only contain 25 characters at max\n";
+        }
+        if(!passwordRegex.test(password)) {
+            alertMessage += "password must atleast contain 6 characters minimum\n" + "password must only contain 25 characters at max\n"
+                            + "password must contain atleast 1 uppercase character\n" +  "password must contain atleast 1 lowerase character\n"
+                            + "password must contain atleast 1 digit\n" + "password must contain atleast 1 one special character\n";
+        }
+        if(firstName.length==0) {
+            alertMessage += "First Name must be filled out\n";
+        }
+        if(firstName.length<3) {
+            alertMessage += "First Name must atleast contain 3 characters minimum\n";
+        }
+        if(firstName.length>25) {
+            alertMessage += "First Name must only contain 25 characters at max\n";
+        }
+        if(lastName.length==0) {
+            alertMessage += "Last Name must be filled out\n";
+        }
+        if(lastName.length<3) {
+            alertMessage += "Last Name must atleast contain 3 characters minimum\n";
+        }
+        if(lastName.length>25) {
+            alertMessage += "Last Name must only contain 25 characters at max\n";
+        }
+        if(!emailRegex.test(email)) {
+            alertMessage += "Please provide a valid email address\n";
+        }
+        if(email.length>50) {
+            alertMessage += "email can only have a maximum of 50 characters\n";
+        } 
+        if(!mobileRegex.test(mobile)) {
+            alertMessage += "please provide a valid mobile number with 10 digits\n";
+        }
+        if(isNaN(brNo)) {
+            alertMessage += "please provide a valid br number with digits only\n";
+        }else if(brNo.length>10) {
+            alertMessage += "please provide a valid br number within 10 digits only\n";
+        }
+        
+        if(alertMessage.length>10) {
+            alert(alertMessage);
+            return false;
+        }
+}
+</script>
+
 </head>
 <body>
 <center>
@@ -13,7 +82,7 @@
 <h2>Register Owner</h2>
 <hr>
 <br>
-<form action="CreateOwner" method="post">
+<form name="ownerForm" action="CreateOwner" method="post" onsubmit="return validateForm()">
 <pre>
 User Name:	<input type="text" name="userName" required/> 
 <br>
@@ -23,7 +92,7 @@ First Name:	<input type="text" name="firstName" required/>
 <br>
 Last Name:	<input type="text" name="lastName" required/> 
 <br>
-E-mail Address:	<input type="text" name="email" required/> 
+E-mail Address:	<input type="email" name="email" required/> 
 <br>
 Mobile Number:	<input type="text" name="mobile" required/>
 <br>

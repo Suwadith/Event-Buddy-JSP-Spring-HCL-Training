@@ -7,17 +7,9 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <title>Owner Home Page</title>
-<style>
-.jumbotron{
-	border-radius: 1px;
-	background-color: white;
-	color:black;
-}
-</style>
 </head>
 <body>
-<div class="container-fluid" align="center">
-       <div class="jumbotron">
+<div class="card" align="center">
  				<hr>
 				<h1 align="center">Welcome <%=session.getAttribute("ownerName")%> !!</h1>
 				<hr>
@@ -35,7 +27,8 @@
 				<form action="LogoutUser" method="get">
 				<input type="submit" value="Logout" class="btn btn-secondary btn-md">
 				</form>
-       </div>
-  </div>
+				<br>
+       </div>      
+
 </body>
 </html>

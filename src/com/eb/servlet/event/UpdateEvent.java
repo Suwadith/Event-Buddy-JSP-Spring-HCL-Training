@@ -44,52 +44,48 @@ public class UpdateEvent extends HttpServlet {
 		{
 			imageURL = "https://rangrezz.chitkara.edu.in/assets/images/stagetheater.jpg";
 		}*/
-		if(request.getPart("eventImage")!=null)
-		{
-			
-		}
-		Part part = request.getPart("eventImage");//
-        String fileName = extractFileName(part);//file name
-
-        /**
-         * *** Get The Absolute Path Of The Web Application ****
-         */
-        String applicationPath = getServletContext().getRealPath("");
-        String uploadPath = applicationPath + File.separator + UPLOAD_DIR;
-        System.out.println("applicationPath:" + applicationPath);
-        File fileUploadDirectory = new File(uploadPath);
-        if (!fileUploadDirectory.exists()) {
-            fileUploadDirectory.mkdirs();
-        }
-        String savePath = uploadPath + File.separator + fileName;
-        System.out.println("savePath: " + savePath);
-        String sRootPath = new File(savePath).getAbsolutePath();
-        System.out.println("sRootPath: " + sRootPath);
-        part.write(savePath + File.separator);
-        File fileSaveDir1 = new File(savePath);
-        /*if you may have more than one files with same name then you can calculate some random characters
-         and append that characters in fileName so that it will  make your each image name identical.*/
-        dbFileName = UPLOAD_DIR + File.separator + fileName;
-        part.write(savePath + File.separator);
-		
 		EventDAO edao = new EventDAO();
 		boolean updateEvent=false;
-		if(dbFileName.isEmpty() || dbFileName==null) 
+		
+		if(request.getPart("eventImage")!=null && request.getPart("eventImage").getSize()!=0)
+		{
+		
+			Part part = request.getPart("eventImage");//
+	        String fileName = extractFileName(part);//file name
+
+	        /**
+	         * *** Get The Absolute Path Of The Web Application ****
+	         */
+	        String applicationPath = getServletContext().getRealPath("");
+	        String uploadPath = applicationPath + File.separator + UPLOAD_DIR;
+	        System.out.println("applicationPath:" + applicationPath);
+	        File fileUploadDirectory = new File(uploadPath);
+	        if (!fileUploadDirectory.exists()) {
+	            fileUploadDirectory.mkdirs();
+	        }
+	        String savePath = uploadPath + File.separator + fileName;
+	        System.out.println("savePath: " + savePath);
+	        String sRootPath = new File(savePath).getAbsolutePath();
+	        System.out.println("sRootPath: " + sRootPath);
+	        part.write(savePath + File.separator);
+	        File fileSaveDir1 = new File(savePath);
+	        /*if you may have more than one files with same name then you can calculate some random characters
+	         and append that characters in fileName so that it will  make your each image name identical.*/
+	        dbFileName = UPLOAD_DIR + File.separator + fileName;
+	        part.write(savePath + File.separator);
+	        Event event = new Event(id,name,type,description,date,stime,etime,price,dbFileName);
+	        updateEvent =edao.updateEvent(event); 
+		}
+		else 
 		{
 			Event event = new Event(id,name,type,description,date,stime,etime,price);
 			updateEvent = edao.updateEventWithoutImage(event);
 		}
-		else 
-		{
-			Event event = new Event(id,name,type,description,date,stime,etime,price,dbFileName);
-	        updateEvent =edao.updateEvent(event);
-		}
         
         if(updateEvent)
 		{
-
 			response.sendRedirect(request.getContextPath() + "/ViewEventList?hid="+hallId);
-			
+
 		}
 		else 
 		{

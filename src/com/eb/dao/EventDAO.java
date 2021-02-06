@@ -270,7 +270,7 @@ public boolean updateEventWithoutImage(Event e){
 			stmt.setTime(5,Time.valueOf(e.getStartTime()));
 			stmt.setTime(6,Time.valueOf(e.getEndTime()));
 			stmt.setDouble(7,e.getTicketPrice());
-			stmt.setInt(9,e.getEventId());
+			stmt.setInt(8,e.getEventId());
 			int n = stmt.executeUpdate();
 		    return n>0?true:false;
 		}

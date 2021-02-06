@@ -7,10 +7,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 <style>
 .new-deal{width:100%;float:left;padding:15px 0;}
 .new-deal .item-slide{position: relative;overflow: hidden;transition:all .5s ease;-moz-transition:all .5s ease;-webkit-transition:all .5s ease;margin:15px 0;}
@@ -33,49 +33,65 @@
 <title>Events</title>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Event Buddy</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+<% 
+	if(session.getAttribute("customerID")==null)
+	{
+		response.sendRedirect("Login.jsp");
+	}
+%>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="CustomerHome.jsp">Home <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>   
+    <form class="form-inline my-2 my-lg-0" action="LogoutUser" method="get">
+    <strong style="color:white" > <%=session.getAttribute("customerName")%> </strong> &nbsp; &nbsp;
+    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Logout</button>
+	</form>
+  </div>
+</nav>
 <hr>
-<h1 style="text-align: center;">Events</h1>
+<h1 style="text-align: center;"> Available Events </h1>
 <hr>
 <section class="new-deal">
-		 <div class="container">
-		 
-		    <c:forEach var="event" items="${eventList}">
-		   			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 deal deal-block">
-				<div class="item-slide">
-						<div class="box-img">
-						<!--<img src="https://rangrezz.chitkara.edu.in/assets/images/stagetheater.jpg" alt="dasdas"/> -->
-							<img src="${event.eventImage}" alt="Image" width="400" height="200"/>
-							<div class="text-wrap">
-							<h4>${event.eventName}&nbsp;<span class="deal-data"><span class="glyphicon glyphicon-calendar"></span>&nbsp;On &nbsp;${event.eventDate}&nbsp;<br>From ${event.startTime}&nbsp;To&nbsp;${event.endTime} </span></h4>
-								<div class="desc">									
-									
-									<h3>Rs.${event.ticketPrice}</h3>
-								</div>
-								<div class="book-now-c">								
-								<a href="<%=request.getContextPath()%>/ViewAllSeats?eventId=${event.eventId}">View Seats</a>
-								</div>
-							</div>
-						</div>
-						<div class="slide-hover">
-						<div class="text-wrap">
-						<p>${event.eventDescription}</p>
-						<h4>${event.eventName}&nbsp;<span class="deal-data"><span class="glyphicon glyphicon-calendar"></span>&nbsp;On &nbsp;${event.eventDate}&nbsp;<br>From ${event.startTime}&nbsp;To&nbsp;${event.endTime} </span></h4>
-								<div class="desc">									
-									
-									<h3>Rs.${event.ticketPrice}</h3>
-								</div>
-								<div class="book-now-c">
-									<a href="<%=request.getContextPath()%>/ViewAllSeats?eventId=${event.eventId}">View Seats</a>
-								</div>
-							</div>
-						</div>
+<div class="container">
+<c:forEach var="event" items="${eventList}">
+<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 deal deal-block">
+	<div class="item-slide">
+		<div class="box-img">
+			<img src="${event.eventImage}" alt="Image" width="450" height="150"/>
+				<div class="text-wrap">
+					<h4>${event.eventName}&nbsp;<span class="deal-data"><span class="glyphicon glyphicon-calendar"></span>&nbsp;On &nbsp;${event.eventDate}&nbsp;<br>From ${event.startTime}&nbsp;To&nbsp;${event.endTime} </span></h4>
+					<div class="desc">									
+						<h3>Rs.${event.ticketPrice}</h3>
+					</div>
+					<div class="book-now-c">								
+						<a href="<%=request.getContextPath()%>/ViewAllSeats?eventId=${event.eventId}">View Seats</a>
+					</div>
 				</div>
 			</div>
-			  </c:forEach>
-			</div>
-		
-		 </section>
-
-
+			<div class="slide-hover">
+				<div class="text-wrap">
+					<p>${event.eventDescription}</p>
+					<h4>${event.eventName}&nbsp;<span class="deal-data"><span class="glyphicon glyphicon-calendar"></span>&nbsp;On &nbsp;${event.eventDate}&nbsp;<br>From ${event.startTime}&nbsp;To&nbsp;${event.endTime} </span></h4>
+					<div class="desc">									
+						<h3>Rs.${event.ticketPrice}</h3>
+					</div>
+					<div class="book-now-c">
+						<a href="<%=request.getContextPath()%>/ViewAllSeats?eventId=${event.eventId}">View Seats</a>
+					</div>
+				</div>
+			</div>			
+	</div>
+</div>
+</c:forEach>
+</div>	
+</section>
 </body>
 </html>

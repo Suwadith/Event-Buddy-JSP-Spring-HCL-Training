@@ -5,7 +5,7 @@ import java.time.LocalTime;
 
 
 
-public class Event {
+public class Event  {
 
 	private int eventId;
 	private String eventName;

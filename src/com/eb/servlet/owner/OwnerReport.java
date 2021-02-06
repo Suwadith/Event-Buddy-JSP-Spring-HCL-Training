@@ -19,22 +19,29 @@ public class OwnerReport extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int ownerID = Integer.parseInt(request.getParameter("ownerID"));
-		//System.out.println(ownerID);
-		HallDAO hdao = new HallDAO();
-		int hallCount = hdao.getHallCountByOwner(ownerID);
-		request.setAttribute("hallCount", hallCount);
-		EventDAO edao = new EventDAO();
-		int eventCount = edao.getEventCountByOwner(ownerID);
-		request.setAttribute("eventCount", eventCount);
-		TicketDAO tdao = new TicketDAO();
-		int ticketCount = tdao.getTicketCountByOwner(ownerID);
-		request.setAttribute("ticketCount", ticketCount);
-		double salesAmount = tdao.getTicketSaleByOwner(ownerID);
-		request.setAttribute("salesAmount", salesAmount);
+		if(request.getParameter("ownerID")!=null)
+		{
+			int ownerID = Integer.parseInt(request.getParameter("ownerID"));
+			HallDAO hdao = new HallDAO();
+			int hallCount = hdao.getHallCountByOwner(ownerID);
+			request.setAttribute("hallCount", hallCount);
+			EventDAO edao = new EventDAO();
+			int eventCount = edao.getEventCountByOwner(ownerID);
+			request.setAttribute("eventCount", eventCount);
+			TicketDAO tdao = new TicketDAO();
+			int ticketCount = tdao.getTicketCountByOwner(ownerID);
+			request.setAttribute("ticketCount", ticketCount);
+			double salesAmount = tdao.getTicketSaleByOwner(ownerID);
+			request.setAttribute("salesAmount", salesAmount);
+			
+			RequestDispatcher dispatcher = request.getRequestDispatcher("OwnerReport.jsp");
+			dispatcher.forward(request, response);
+		}
+		else 
+		{
+			response.sendRedirect(request.getContextPath() + "/Login.jsp");
+		}
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("OwnerReport.jsp");
-		dispatcher.forward(request, response);
 	}
 
 }

@@ -61,7 +61,7 @@
 <h2>Create Event</h2>
 <hr>
 <br>
-<form action="CreateEvent" method="post" id="eventform">
+<form action="CreateEvent" method="post" enctype="multipart/form-data" id="eventform">
 <pre>
 Event Name: <input type="text" name="eventName" maxlength="25" required/>
 
@@ -77,7 +77,8 @@ End Time: <input type="time" name="endTime" id="endTime" onchange="validateTime(
 
 Ticket Price: <input type="number" name="ticketPrice"  min="100" required/> 
 
-Event Image: <input type="url" name="eventImage" maxlength="500"/> 
+Event Image: <input type="file" accept="image/*" name="eventImage" /> 
+
 <input type="hidden" name="hallId" value="<%=request.getParameter("hid")%>"/> 
 </pre>
 <hr>

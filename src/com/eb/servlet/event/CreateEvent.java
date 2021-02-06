@@ -24,9 +24,14 @@ import java.time.format.DateTimeFormatter;
 
 
 @WebServlet("/CreateEvent")
+@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2, // 2MB
+maxFileSize = 1024 * 1024 * 10, // 10MB
+maxRequestSize = 1024 * 1024 * 50)
 public class CreateEvent extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+	public static final String UPLOAD_DIR = "images";
+    public String dbFileName = "";
+    
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		
 		String name = request.getParameter("eventName");
@@ -39,22 +44,39 @@ public class CreateEvent extends HttpServlet {
 		LocalTime etime = LocalTime.parse(request.getParameter("endTime")); 
 		double price = Double.parseDouble(request.getParameter("ticketPrice"));
 		int hallID = Integer.parseInt(request.getParameter("hallId"));
-		String imageURL= request.getParameter("eventImage");
+		/*String imageURL= request.getParameter("eventImage");
 		if(imageURL==null || imageURL.isEmpty())
 		{
 			imageURL = "https://rangrezz.chitkara.edu.in/assets/images/stagetheater.jpg";
-		}
-		/*Part imagePartFile = request.getPart("eventImage");
-		String imageFileName = name + ".jpg";
-		InputStream imageFileContent = imagePartFile.getInputStream();
-		String imagePath = getServletContext().getInitParameter("image-upload");
-		String eventImagePath= imagePath+imageFileName;
-		File imageFile = new File(eventImagePath);
-		Files.copy(imageFileContent, imageFile.toPath(), StandardCopyOption.REPLACE_EXISTING);*/
+		}*/
+		
+		Part part = request.getPart("eventImage");//
+        String fileName = extractFileName(part);//file name
+
+        /**
+         * *** Get The Absolute Path Of The Web Application ****
+         */
+        String applicationPath = getServletContext().getRealPath("");
+        String uploadPath = applicationPath + File.separator + UPLOAD_DIR;
+        System.out.println("applicationPath:" + applicationPath);
+        File fileUploadDirectory = new File(uploadPath);
+        if (!fileUploadDirectory.exists()) {
+            fileUploadDirectory.mkdirs();
+        }
+        String savePath = uploadPath + File.separator + fileName;
+        System.out.println("savePath: " + savePath);
+        String sRootPath = new File(savePath).getAbsolutePath();
+        System.out.println("sRootPath: " + sRootPath);
+        part.write(savePath + File.separator);
+        File fileSaveDir1 = new File(savePath);
+        /*if you may have more than one files with same name then you can calculate some random characters
+         and append that characters in fileName so that it will  make your each image name identical.*/
+        dbFileName = UPLOAD_DIR + File.separator + fileName;
+        part.write(savePath + File.separator);
 		
 		
         EventDAO edao = new EventDAO();
-        Event event = new Event(name,type,description,date,stime,etime,price,imageURL);
+        Event event = new Event(name,type,description,date,stime,etime,price,dbFileName);
         boolean createEvent =edao.createEvent(event, hallID);
                
         if(createEvent)
@@ -83,6 +105,19 @@ public class CreateEvent extends HttpServlet {
 			response.sendRedirect(request.getContextPath() + "/ErrorPage.jsp");
 		}
 	}
+	// file name of the upload file is included in content-disposition header like this:
+    //form-data; name="dataFile"; filename="PHOTO.JPG"
+
+    private String extractFileName(Part part) {//This method will print the file name.
+        String contentDisp = part.getHeader("content-disposition");
+        String[] items = contentDisp.split(";");
+        for (String s : items) {
+            if (s.trim().startsWith("filename")) {
+                return s.substring(s.indexOf("=") + 2, s.length() - 1);
+            }
+        }
+        return "";
+    }
 
 
 }

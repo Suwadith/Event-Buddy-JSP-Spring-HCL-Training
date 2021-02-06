@@ -255,6 +255,41 @@ public Event getEventByID(int id){
 		
 	}
 	
+public boolean updateEventWithoutImage(Event e){
+		
+		Connection con = null;
+		PreparedStatement stmt = null;
+		try
+		{
+			con = DBConnection.getConnection();
+			stmt = con.prepareStatement("update events set event_name=?,event_type=?,event_description=?,event_date=?,start_time=?,end_time=?,ticket_price=? where event_id=?");
+			stmt.setString(1,e.getEventName());
+			stmt.setString(2,e.getEventType());
+			stmt.setString(3,e.getEventDescription());
+			stmt.setDate(4,Date.valueOf(e.getEventDate()));
+			stmt.setTime(5,Time.valueOf(e.getStartTime()));
+			stmt.setTime(6,Time.valueOf(e.getEndTime()));
+			stmt.setDouble(7,e.getTicketPrice());
+			stmt.setInt(9,e.getEventId());
+			int n = stmt.executeUpdate();
+		    return n>0?true:false;
+		}
+		catch(SQLException se){se.printStackTrace();}
+		finally
+		{
+			try
+			{
+				if(stmt!=null)
+					stmt.close();
+				if(con!=null)
+					con.close();
+			}
+			catch(SQLException se){se.printStackTrace();}
+		}
+		return false;
+		
+	}
+	
 	public boolean createEvent(Event e, int hallID){
 		
 		Connection con = null;

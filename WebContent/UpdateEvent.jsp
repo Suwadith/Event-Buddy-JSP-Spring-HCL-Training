@@ -10,15 +10,25 @@
 <meta charset="ISO-8859-1">
 <title>Update Event</title>
 <script>	
-	function validateDate(val){
-		var today = new Date();
-		var checkDate = new Date(val);
-		if(checkDate<today)
-		{
-			alert("Back dated events cannot be created!!");
-			document.getElementById("eventDate").value = today.toLocaleDateString('fr-CA');
-		}
-	}	
+function validateDate(val){
+	var today = new Date();
+	var checkDate = new Date(val);
+	if(checkDate<today)
+	{
+		alert("Back dated events cannot be created!!");
+		document.getElementById("eventDate").value = today.toLocaleDateString('fr-CA');
+	}
+}
+function validateTime(val){
+	var x = document.getElementById("startTime").value;
+	console.log(x);
+	console.log(val);
+	if(val<x)
+	{
+		alert("End time cannot be less than start time!!");
+		document.getElementById("endTime").value = "";
+	}
+}
 </script>
 </head>
 <body>
@@ -51,16 +61,18 @@
 <h2 align="center">Update Event</h2>
 <hr>
 <br>
-<form action="UpdateEvent" method="post" id="eventform">
+<form action="UpdateEvent" method="post" id="eventform" enctype="multipart/form-data">
 <pre>
 Event Name:	<input type="text" name="eventName" value="${event.eventName}" maxlength="25" required /> <br>
 Event Type:	<input type="text" name="eventType" value="${event.eventType}" maxlength="25" required /> <br>
 Description:	<textarea name="eventDescription" form="eventform" maxlength="100" required>${event.eventDescription}</textarea> <br>
 Event Date:	<input type="date" name="eventDate" value="${event.eventDate}" onchange="validateDate(this.value)" id="eventDate" required/> <br>
-Start Time:	<input type="time" name="startTime" value="${event.startTime}" required/> <br>
-End Time:	<input type="time" name="endTime" value="${event.endTime}" required/> <br>
+Start Time:	<input type="time" name="startTime" value="${event.startTime}" id="startTime" required/> <br>
+End Time:	<input type="time" name="endTime" value="${event.endTime}" id="endTime" onchange="validateTime(this.value)" required/> <br>
 Ticket Price:	<input type="number" name="ticketPrice" value="${event.ticketPrice}" required/> <br>
-Event Image: <input type="url" name="eventImage" value="${event.eventImage}" maxlength="500" required/> <br>
+Event Image: <input type="file" accept="image/*" name="eventImage"/>
+  
+<img src="${event.eventImage}" width="100" height="50"/>
 <input type="hidden" name="eventId" value="${event.eventId}"/> <input type="hidden" name="hallId" value="<%=request.getParameter("hid")%>"/> 
 </pre>
 <hr>

@@ -32,7 +32,8 @@ public class OwnerReport extends HttpServlet {
 			int ticketCount = tdao.getTicketCountByOwner(ownerID);
 			request.setAttribute("ticketCount", ticketCount);
 			double salesAmount = tdao.getTicketSaleByOwner(ownerID);
-			request.setAttribute("salesAmount", salesAmount);
+			String sales = String.format("%,.2f", salesAmount);
+			request.setAttribute("salesAmount",sales);
 			
 			RequestDispatcher dispatcher = request.getRequestDispatcher("OwnerReport.jsp");
 			dispatcher.forward(request, response);

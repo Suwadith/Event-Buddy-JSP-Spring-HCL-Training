@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.eb.model.Seat" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -67,6 +69,10 @@ background: #1AA85C;
 
 </style>
 <body>
+<%
+ArrayList<Seat> seatList = (ArrayList<Seat>)session.getAttribute("seatArrayList");
+
+%>
 <hr style="border: 10px solid green;border-radius: 5px;">
 <div class="container-fluid p-5">
       <div class="row text-center w-75">
@@ -76,14 +82,16 @@ background: #1AA85C;
               <h3 class="text-light">${event.eventName}</h3>
             <h4 class="my-0 display-2 text-light font-weight-normal mb-3"><span class="h3">Rs.&nbsp;</span> ${ticketPrice} </h4>
           </div>
-
+			
           <div class="card-body bg-white mt-0 shadow">
             <ul class="list-unstyled mb-5 position-relative">
               <li><b> On </b> ${event.eventDate} </li>
               <li><b> Starts at: </b> ${event.startTime} </li>
               <li><b> Ends at: </b> ${event.endTime} </li>
               <li><b> No of Tickets: </b> ${noOfTickets} </li>
-             	<li><b> Seat Numbers </b> ${seats} </li>
+             	
+             	
+             	<li><b> Seat Numbers </b> <% for(Seat s:seatList){ %> <%= s.getSeatNo() %> <% } %></li>
             </ul>
             <button type="button" class="btn btn-lg btn-block  btn-custom" onclick="window.print()"> Print Ticket </button>
             <form action="LogoutUser" method="get"><button type="submit" class="btn btn-lg btn-block  btn-warning">Logout</button></form>

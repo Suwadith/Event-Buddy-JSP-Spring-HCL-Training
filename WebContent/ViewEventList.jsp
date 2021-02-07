@@ -73,7 +73,6 @@
 <hr>	
 	<a href="CreateEvent.jsp?hid=<%=request.getAttribute("hallId")%>" class="btn btn-success"> Create Event </a> &nbsp;
 	<a href="javascript:history.back()" class="btn btn-secondary"> Go Back </a>
-
 <hr>
 </center>
 </body>

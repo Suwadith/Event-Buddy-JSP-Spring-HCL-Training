@@ -32,16 +32,17 @@ public class ViewAllSeats extends HttpServlet {
 		List<Seat> list = seatDAO.getAllSeatsByEvent(eventID);
 		if (list != null) {
 			List<Seat> listOfNotBookedSeats = new ArrayList<>();
-			List<Seat> listOfSeats = new ArrayList<>();
+			List<Seat> listOfBookedSeats = new ArrayList<>();
 			for(Seat s:list) {
-				listOfSeats.add(s);
 				if(!s.isSeatStatus()) {
 					listOfNotBookedSeats.add(s);
+				} else {
+					listOfBookedSeats.add(s);
 				}
 			}
 			
-//			request.setAttribute("seatList", listOfNotBookedSeats);
-			request.setAttribute("seatList", listOfSeats);
+			request.setAttribute("seatList", listOfNotBookedSeats);
+			request.setAttribute("bookedSeatList", listOfBookedSeats);
 			request.setAttribute("noOfSeatsAvailable", listOfNotBookedSeats.size());
 			request.setAttribute("eventId",eventID);
 			RequestDispatcher rd = request.getRequestDispatcher("ViewAllSeats.jsp");
